@@ -211,6 +211,7 @@ main {
   /* When you mouse over the navigation links, change their color */
   .sidenav a:hover {
     color: #f1f1f1;
+    
   }
   
   /* Position and style the close button (top right corner) */
@@ -268,6 +269,7 @@ main {
   padding: 12px 16px;
   background-color: #f1f1f1;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 /* Add a light grey background on mouse-over */
