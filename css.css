@@ -255,6 +255,7 @@ main {
   text-align: center;
   margin: 2px;
   display: none; /* Hidden by default */
+  background-size: cover;
 }
 
 /* The "show" class is added to the filtered elements */
