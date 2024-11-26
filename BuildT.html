@@ -70,8 +70,15 @@
         </div>
         
         <section id="content-header">
-            <h2>Character selection</h2>
+            <h2>Character selection
+                <div id="selected-character" style="margin-top: 20px; color: rgb(124, 0, 0); font-size: 16px;">
+                    You selected: none
+                </div>
+            </h2>
+
+
             <div id="content-info">
+
                 <!-- Control buttons -->
                 <div id="myBtnContainer">
                 <button class="btn active" onclick="filterSelection('all')"> All</button>
@@ -98,74 +105,96 @@
 
                 <!-- The filterable elements. Note that some have multiple class names (this can be used if they belong to multiple categories) -->
                 <div class="container">
-                <div class="filterDiv abu light">Bailu</div>
-                <div class="filterDiv abu fire">Gallagher</div>
-                <div class="filterDiv abu wind">Huohuo</div>
-                <div class="filterDiv abu fire">Lingsha</div>
-                <div class="filterDiv abu imag">Luocha</div>
-                <div class="filterDiv abu quan">Lynx</div>
-                <div class="filterDiv abu phy">Natasha</div>
-                <div class="filterDiv des light">Arlan</div>
-                <div class="filterDiv des wind">Blade</div>
-                <div class="filterDiv des phy">Clara</div>
-                <div class="filterDiv des imag">Imbibitor</div>
-                <div class="filterDiv des fire">Firefly</div>
-                <div class="filterDiv des fire">Hook</div>
-                <div class="filterDiv des ice">Jingliu</div>
-                <div class="filterDiv des ice">Misha</div>
-                <div class="filterDiv des phy">Trailblazer</div>
-                <div class="filterDiv des quan">Xueyi</div>
-                <div class="filterDiv des phy">Yunli</div>
-                <div class="filterDiv eru phy">Argenti</div>
-                <div class="filterDiv eru ice">Herta</div>
-                <div class="filterDiv eru fire">Himeko</div>
-                <div class="filterDiv eru quan">Jade</div>
-                <div class="filterDiv eru light">Jing Yuan</div>
-                <div class="filterDiv eru quan">Qingque</div>
-                <div class="filterDiv eru imag">Rappa</div>
-                <div class="filterDiv eru light">Serval</div>
-                <div class="filterDiv eru ice">The Herta</div>
-                <div class="filterDiv har fire">Asta</div>
-                <div class="filterDiv har wind">Bronya</div>
-                <div class="filterDiv har phy">Hanya</div>
-                <div class="filterDiv har phy">Robin</div>
-                <div class="filterDiv har ice">Ruan Mei</div>
-                <div class="filterDiv har quan">Sparkle</div>
-                <div class="filterDiv har imag">
-                    <img src="https://starrail.honeyhunterworld.com/img/character/sunday-character_head_icon.webp?x49467" style="width: 50px; height: 50px;">
-                    Sunday
-                </div>
-                <div class="filterDiv har light">Tingyun</div>
-                <div class="filterDiv har imag">Trailblazer</div>
-                <div class="filterDiv har imag">Yukong</div>
-                <div class="filterDiv hunt phy">Boothill</div>
-                <div class="filterDiv hunt wind">Dan Heng</div>
-                <div class="filterDiv hunt imag">Dr Ratio</div>
-                <div class="filterDiv hunt wind">Feixiao</div>
-                <div class="filterDiv hunt imag">March 7th</div>
-                <div class="filterDiv hunt light">Moze</div>
-                <div class="filterDiv hunt quan">Seele</div>
-                <div class="filterDiv hunt phy">Sushang</div>
-                <div class="filterDiv hunt fire">Topaz</div>
-                <div class="filterDiv hunt ice">Yanqing</div>
-                <div class="filterDiv nihi light">Acheron</div>
-                <div class="filterDiv nihi wind">Black Swan</div>
-                <div class="filterDiv nihi fire">Guinaifen</div>
-                <div class="filterDiv nihi fire">Jiaoqiu</div>
-                <div class="filterDiv nihi light">Kafka</div>
-                <div class="filterDiv nihi phy">Luka</div>
-                <div class="filterDiv nihi ice">Pela</div>
-                <div class="filterDiv nihi wind">Sampo</div>
-                <div class="filterDiv nihi quan">Silver Wolf</div>
-                <div class="filterDiv nihi fire">Fugue</div>
-                <div class="filterDiv nihi imag">Welt</div>
-                <div class="filterDiv pres imag">Aventurine</div>
-                <div class="filterDiv pres quan">Fu Xuan</div>
-                <div class="filterDiv pres ice">Gepard</div>
-                <div class="filterDiv pres ice">March 7th</div>
-                <div class="filterDiv pres fire">Trailblazer</div>
-                <div class="filterDiv remem light">Aglaea</div>
-                <div class="filterDiv remem ice">Trailblazer</div>
+                    <button class="filterDiv abu light" value="sunday" style=" background-image: url('https://starrail.honeyhunterworld.com/img/character/sunday-character_head_icon.webp?x49467'); z-index: 100;">
+                        <span>Bailu</span>
+                    </button>
+                    <button class="filterDiv abu fire">
+                        <span>Gallagher</span>
+                    </button>
+                    <button class="filterDiv abu wind">
+                        <span>Huohuo</span></button>
+                    <button class="filterDiv abu fire">
+                        <span>Lingsha</span></button>
+                    <button class="filterDiv abu imag">
+                        <span>Luocha</span></button>
+                    <button class="filterDiv abu quan">
+                        <span>Lynx</span></button>
+                    <button class="filterDiv abu phy">
+                        <span>Natasha</span></button>
+                    <button class="filterDiv des light">
+                        <span>Arlan</span></button>
+                    <button class="filterDiv des wind">
+                        <span>Blade</span></button>
+                    <button class="filterDiv des phy">
+                        <span>Clara</span></button>
+                    <button class="filterDiv des imag">
+                        <span>Imbibitor Lunae</span></button>
+                    <button class="filterDiv des fire">
+                        <span>Firefly</span></button>
+                    <button class="filterDiv des fire">
+                        <span>Hook</span></button>
+                    <button class="filterDiv des ice">
+                        <span>Jingliu</span></button>
+                    <button class="filterDiv des ice">
+                        <span>Misha</span></button>
+                    <button class="filterDiv des phy">
+                        <span>Trailblazer</span></button>
+                    <button class="filterDiv des quan">
+                        <span>Xueyi</span></button>
+                    <button class="filterDiv des phy">
+                        <span>Yunli</span></button>
+                    <button class="filterDiv eru phy">
+                        <span>Argenti</span></button>
+                    <button class="filterDiv eru ice">
+                        <span>Herta</span></button>
+                    <button class="filterDiv eru fire">
+                        <span>Himeko</span></button>
+                    <button class="filterDiv eru quan">Jade</button>
+                    <button class="filterDiv eru light">Jing Yuan</button>
+                    <button class="filterDiv eru quan">Qingque</button>
+                    <button class="filterDiv eru imag">Rappa</button>
+                    <button class="filterDiv eru light">Serval</button>
+                    <button class="filterDiv eru ice">The Herta</button>
+                    <button class="filterDiv har fire">Asta</button>
+                    <button class="filterDiv har wind">Bronya</button>
+                    <button class="filterDiv har phy">Hanya</button>
+                    <button class="filterDiv har phy">Robin</button>
+                    <button class="filterDiv har ice">Ruan Mei</button>
+                    <button class="filterDiv har quan">Sparkle</button>
+                    <button class="filterDiv har imag" value="sunday" style=" background-image: url('https://starrail.honeyhunterworld.com/img/character/sunday-character_head_icon.webp?x49467'); z-index: 100;">
+                        <span>Sunday</span>
+                    </button>
+                    <button class="filterDiv har light">Tingyun</button>
+                    <button class="filterDiv har imag">Trailblazer</button>
+                    <button class="filterDiv har imag">Yukong</button>
+                    <button class="filterDiv hunt phy">Boothill</button>
+                    <button class="filterDiv hunt wind">Dan Heng</button>
+                    <button class="filterDiv hunt imag">Dr Ratio</button>
+                    <button class="filterDiv hunt wind">Feixiao</button>
+                    <button class="filterDiv hunt imag">March 7th</button>
+                    <button class="filterDiv hunt light">Moze</button>
+                    <button class="filterDiv hunt quan">Seele</button>
+                    <button class="filterDiv hunt phy">Sushang</button>
+                    <button class="filterDiv hunt fire">Topaz</button>
+                    <button class="filterDiv hunt ice">Yanqing</button>
+                    <button class="filterDiv nihi light">Acheron</button>
+                    <button class="filterDiv nihi wind">Black Swan</button>
+                    <button class="filterDiv nihi fire">Guinaifen</button>
+                    <button class="filterDiv nihi fire">Jiaoqiu</button>
+                    <button class="filterDiv nihi light">Kafka</button>
+                    <button class="filterDiv nihi phy">Luka</button>
+                    <button class="filterDiv nihi ice">Pela</button>
+                    <button class="filterDiv nihi wind">Sampo</button>
+                    <button class="filterDiv nihi quan">Silver Wolf</button>
+                    <button class="filterDiv nihi fire">Fugue</button>
+                    <button class="filterDiv nihi imag">Welt</button>
+                    <button class="filterDiv pres imag">Aventurine</button>
+                    <button class="filterDiv pres quan">Fu Xuan</button>
+                    <button class="filterDiv pres ice">Gepard</button>
+                    <button class="filterDiv pres ice">March 7th</button>
+                    <button class="filterDiv pres fire">Trailblazer</button>
+                    <button class="filterDiv remem light">Aglaea</button>
+                    <button class="filterDiv remem ice">Trailblazer</button>
 
                 </div>
             </div>

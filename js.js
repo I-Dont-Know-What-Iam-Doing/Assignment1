@@ -31,6 +31,13 @@ function showSlides(n) {
 // - slideshow
 
 
+
+
+
+
+
+
+
 // Side nav
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
 function openNav() {
@@ -46,6 +53,14 @@ function closeNav() {
   document.body.style.backgroundColor = "white";
 }
 // - side nav
+
+
+
+
+
+
+
+
 
 
 // Character container
@@ -97,3 +112,33 @@ for (var i = 0; i < btns.length; i++) {
   });
 }
 // - Character container
+
+
+
+
+
+
+// Character selection
+// Add click event listener to all buttons
+document.querySelectorAll('.filterDiv').forEach(button => {
+  button.addEventListener('click', (event) => {
+      // Ensure the clicked element is the button itself
+      const targetButton = event.currentTarget;
+
+      // Get the value from the button's "value" attribute
+      const value = targetButton.value;
+
+      // Update the part of the page with the selected character
+      const display = document.getElementById('selected-character');
+      if (display) {
+          display.textContent = `You selected: ${value}`;
+      }
+  });
+});
+
+// - Character selection
+
+
+
+
+

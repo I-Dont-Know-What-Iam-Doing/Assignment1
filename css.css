@@ -248,14 +248,43 @@ main {
 
 .filterDiv {
   float: left;
-  background-color: #2195f3;
-  color: #ffffff;
+  position: relative; /* Enable positioning for overlay text */
+  background-color: #252642; /* Fallback background color */
+  background-size: cover; /* Make the image cover the entire box */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat;
+  color: #ffffff; /* Text color */
   width: 100px;
-  line-height: 100px;
-  text-align: center;
+  height: 100px; /* Define fixed box size */
+  line-height: 100px; /* Center single-line text vertically */
+  text-align: center; /* Center text horizontally */
   margin: 2px;
   display: none; /* Hidden by default */
-  background-size: cover;
+  box-shadow: 0 2px 4px rgb(0, 0, 0); /* Add shadow for depth */
+  border-radius: 4px; /* Optional: rounded corners */
+  overflow: hidden; /* Prevent content overflow */
+  cursor: pointer;
+}
+
+/* Add an overlay effect to darken the background for better text visibility */
+.filterDiv::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.55); /* Black overlay with 40% opacity */
+  z-index: 1; /* Ensure the overlay is below the text */
+}
+
+/* Text styling for filterDiv */
+.filterDiv span {
+  position: relative;
+  z-index: 2; /* Text stays above the overlay */
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 /* The "show" class is added to the filtered elements */
@@ -283,4 +312,3 @@ main {
   background-color: #666;
   color: white;
 }
-/* - Character container */
