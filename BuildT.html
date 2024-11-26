@@ -50,33 +50,55 @@
         </h1>
     </header>
     <main>
-        <p>🤯🤯🤯🤯</p>
-        <a href="index.html">
-            <button type="button">News & Update</button>
-        </a>
+        <div id="content-table">
+            <p>
+                <img src="list.png" id="list">
+                List of contents
+            </p>
+            <ul>
+                <li id="content">
+                    <a href="">
+                        Character selection
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        Build History
+                    </a>
+                </li>
+            </ul>
+        </div>
         
-     
-        <a href="TierList.html">
-            <button type="button">Tier List</button>
-        </a>
-    
-      
-        <a href="BuildAnal.html">
-            <button type="button">Build Analysis</button>
-        </a>
-        
-        <a href="BuildT.html">
-            <button type="button">Build Test</button>
-        </a>
-        
-        <a href="TeamSy.html">
-            <button type="button">Team Synergy Test</button>
-        </a>
-        
-        <a href="TeamComp.html">
-            <button type="button">Best Team Comps</button>
-        </a>
-        
+        <section id="content-header">
+            <h2>Character selection</h2>
+            <div id="content-info">
+                <!-- Control buttons -->
+                <div id="myBtnContainer">
+                <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+                <button class="btn" onclick="filterSelection('cars')"> Cars</button>
+                <button class="btn" onclick="filterSelection('animals')"> Animals</button>
+                <button class="btn" onclick="filterSelection('fruits')"> Fruits</button>
+                <button class="btn" onclick="filterSelection('colors')"> Colors</button>
+                </div>
+
+                <!-- The filterable elements. Note that some have multiple class names (this can be used if they belong to multiple categories) -->
+                <div class="container">
+                <div class="filterDiv cars">BMW</div>
+                <div class="filterDiv colors fruits">Orange</div>
+                <div class="filterDiv cars">Volvo</div>
+                <div class="filterDiv colors">Red</div>
+                <div class="filterDiv cars">Ford</div>
+                <div class="filterDiv colors">Blue</div>
+                <div class="filterDiv animals">Cat</div>
+                <div class="filterDiv animals">Dog</div>
+                <div class="filterDiv fruits">Melon</div>
+                <div class="filterDiv fruits animals">Kiwi</div>
+                <div class="filterDiv fruits">Banana</div>
+                <div class="filterDiv fruits">Lemon</div>
+                <div class="filterDiv animals">Cow</div>
+                </div>
+            </div>
+        </section>
     </main>
 </body>
 </html>
