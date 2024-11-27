@@ -259,7 +259,7 @@ main {
   line-height: 100px; /* Center single-line text vertically */
   text-align: center; /* Center text horizontally */
   margin: 2px;
-  display: none; /* Hidden by default */
+  display: none; /* Hidden by default (none) */
   box-shadow: 0 2px 4px rgb(0, 0, 0); /* Add shadow for depth */
   border-radius: 4px; /* Optional: rounded corners */
   overflow: hidden; /* Prevent content overflow */
@@ -312,3 +312,67 @@ main {
   background-color: #666;
   color: white;
 }
+
+
+/* Stats info
+}
+
+/* Character Buttons */
+.character-card {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 100px;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.character-card:hover {
+  transform: scale(1.1);
+  border-color: #007bff;
+}
+
+/* Display Area */
+#character-display {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 20px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+#character-display img {
+  max-width: 696px;
+  height: auto;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+#character-display p {
+  font-size: 16px;
+  color: #555;
+}
+
+#character-details {
+  max-width: 500px;
+  text-align: left;
+}
+
+#character-details h3 {
+  font-size: 20px;
+  margin: 0 0 10px;
+  color: #333;
+}
+/* - Stats info

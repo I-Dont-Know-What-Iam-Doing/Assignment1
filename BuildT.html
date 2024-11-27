@@ -81,7 +81,7 @@
 
                 <!-- Control buttons -->
                 <div id="myBtnContainer">
-                <button class="btn active" onclick="filterSelection('all')"> All</button>
+                <button class="btn" onclick="filterSelection('all')"> All</button>
                 <button class="btn" onclick="filterSelection('abu')"> Abundance</button>
                 <button class="btn" onclick="filterSelection('des')"> Destruction</button>
                 <button class="btn" onclick="filterSelection('eru')"> Erudition</button>
@@ -93,7 +93,6 @@
                 </div>
 
                 <div id="myBtnContainer">
-                <button class="btn active" onclick="filterSelection('all')"> All</button>
                 <button class="btn" onclick="filterSelection('phy')"> Physical</button>
                 <button class="btn" onclick="filterSelection('fire')"> Fire</button>
                 <button class="btn" onclick="filterSelection('ice')"> ice</button>
@@ -125,7 +124,7 @@
                         <span>Blade</span></button>
                     <button class="filterDiv des phy" value="Clara" style=" background-image: url('https://starrail.honeyhunterworld.com/img/character/clara-character_wait_icon.webp?x49467');">
                         <span>Clara</span></button>
-                    <button class="filterDiv des imag" value="Imbibitor Lunae" style=" background-image: url('https://starrail.honeyhunterworld.com/img/character/dan-heng-imbibitor-lunae-character_wait_icon.webp?x49467');">
+                    <button class="filterDiv des imag" value="Dan Heng - Imbibitor Lunae" style=" background-image: url('https://starrail.honeyhunterworld.com/img/character/dan-heng-imbibitor-lunae-character_wait_icon.webp?x49467');">
                         <span>Imbibitor Lunae</span></button>
                     <button class="filterDiv des fire" value="Firefly" style=" background-image: url('https://starrail.honeyhunterworld.com/img/character/firefly-character_wait_icon.webp?x49467');">
                         <span>Firefly</span></button>
@@ -151,7 +150,7 @@
                         <span>Jade</span></button>
                     <button class="filterDiv eru light" value="Jing Yuan" style=" background-image: url('https://starrail.honeyhunterworld.com/img/character/jing-yuan-character_head_icon.webp?x49467');">
                         <span>Jing Yuan</span></button>
-                    <button class="filterDiv eru quan" value="QingQue" style=" background-image: url('https://starrail.honeyhunterworld.com/img/character/qingque-character_head_icon.webp?x49467');">
+                    <button class="filterDiv eru quan" value="Qingque" style=" background-image: url('https://starrail.honeyhunterworld.com/img/character/qingque-character_head_icon.webp?x49467');">
                         <span>Qingque</span></button>
                     <button class="filterDiv eru imag" value="Rappa" style=" background-image: url('https://starrail.honeyhunterworld.com/img/character/rappa-character_head_icon.webp?x49467');">
                         <span>Rappa</span></button>
@@ -230,7 +229,316 @@
                     <button class="filterDiv pres fire" value="Trailblazer - Preservation" style=" background-image: url('https://starrail.honeyhunterworld.com/img/character/trailblazer-character-4_head_icon.webp?x49467');">
                         <span>Trailblazer</span></button>
 
+                    
+                    <script>
+                        // JavaScript code for character selection
+                        document.addEventListener("DOMContentLoaded", () => {
+                            const characterButtons = document.querySelectorAll(".filterDiv");
+                
+                            characterButtons.forEach(button => {
+                                button.addEventListener("click", () => {
+                                    const selectedCharacter = button.value;
+                                    const displayElement = document.getElementById("selected-character");
+                                    displayElement.textContent = `You selected: ${selectedCharacter}`;
+                                });
+                            });
+                        });
+                    </script>
                 </div>
+            </div>
+            <h2>Stats Information</h2>
+            <div id="character-display">
+                <h1>Character Selection</h1>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                        const characterButtons = document.querySelectorAll(".filterDiv");
+
+                        characterButtons.forEach(button => {
+                            button.addEventListener("click", () => {
+                                const selectedCharacter = button.value;
+                                const displayElement = document.getElementById("selected-character");
+                                displayElement.textContent = `You selected: ${selectedCharacter}`;
+
+                                // Call the function to update the image and description
+                                updateCharacterDisplay(selectedCharacter);
+                            });
+                        });
+                    });
+
+                    // Function to update the display area with the selected character's image and description
+                    function updateCharacterDisplay(characterName) {
+                        const displayArea = document.getElementById("character-display");
+                        
+                        // Information for each character
+                        const characterInfo = {
+                            Bailu: {
+                                imgUrl: "https://starrail.honeyhunterworld.com/img/character/bailu-character_cut_in_front.webp?x49467",
+                                description: "Bailu is a healer from the Vidyadhara race. She specializes in keeping her allies alive."
+                            },
+                            Gallagher: {
+                                imgUrl: "https://starrail.honeyhunterworld.com/img/character/gallagher-character_cut_in_front.webp?x49467",
+                                description: "Gallagher is a powerful warrior who excels in close combat."
+                            },
+                            Huohuo: {
+                                imgUrl: "https://starrail.honeyhunterworld.com/img/character/huohuo-character_cut_in_front.webp?x49467",
+                                description: "Huohuo is a fox spirit who wields healing magic and provides critical support to her team."
+                            },
+                            Lingsha: {
+                                imgUrl: "https://starrail.honeyhunterworld.com/img/character/lingsha-character_cut_in_front.webp?x49467",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Luocha: {
+                                imgUrl: "https://starrail.honeyhunterworld.com/img/character/luocha-character_cut_in_front.webp?x49467",
+                                description: "Huohuo is a fox spirit who wields healing magic and provides critical support to her team."
+                            },
+                            Lynx: {
+                                imgUrl: "https://starrail.honeyhunterworld.com/img/character/lynx-character_cut_in_front.webp?x49467",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Natasha: {
+                                imgUrl: "https://starrail.honeyhunterworld.com/img/character/natasha-character_cut_in_front.webp?x49467",
+                                description: "Huohuo is a fox spirit who wields healing magic and provides critical support to her team."
+                            },
+                            Arlan: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Blade: {
+                                imgUrl: "",
+                                description: "Huohuo is a fox spirit who wields healing magic and provides critical support to her team."
+                            },
+                            Clara: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            'Dan Heng - Imbibitor Lunae': {
+                                imgUrl: "",
+                                description: "Huohuo is a fox spirit who wields healing magic and provides critical support to her team."
+                            },
+                            Firefly: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Hook: {
+                                imgUrl: "",
+                                description: "Huohuo is a fox spirit who wields healing magic and provides critical support to her team."
+                            },
+                            Jingliu: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Misha: {
+                                imgUrl: "",
+                                description: "Huohuo is a fox spirit who wields healing magic and provides critical support to her team."
+                            },
+                            'Trailblazer - Destruction': {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Xueyi: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Yunli: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Argenti: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Herta: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Himeko: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Jade: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            'Jing Yuan': {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Qingque: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Rappa: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Serval: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Asta: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Bronya: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Hanya: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Robin: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            'Ruan Mei': {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Sparkle: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Sunday: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Tingyun: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            'Trailblazer - Harmony': {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Yukong: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Boothill: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            'Dan Heng': {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            'Dr Ratio': {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Feixiao: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            'March 7th - The Hunt': {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Moze: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Seele: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Sushang: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Topaz: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Yanqing: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Acheron: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            'Black Swan': {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Guinaifen: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Jiaoqiu: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Kafka: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Luka: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Pela: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Sampo: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            'Silver Wolf': {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Fugue: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Welt: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Aventurine: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            'Fu Xuan': {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            Gepard: {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            'March 7th': {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            },
+                            'Trailblazer - Preservation': {
+                                imgUrl: "",
+                                description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
+                            }
+
+
+                        };
+
+                        // Check if the character exists in the characterInfo object
+                        if (characterInfo[characterName]) {
+                            const character = characterInfo[characterName];
+                            displayArea.innerHTML = `
+                                <img src="${character.imgUrl}" alt="${characterName}">
+                                <div id="character-details">
+                                    <h3>${characterName}</h3>
+                                    <p>${character.description}</p>
+                                </div>
+                            `;
+                        } else {
+                            displayArea.innerHTML = `<p>No character selected</p>`;
+                        }
+                    }
+                </script>
             </div>
         </section>
     </main>

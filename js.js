@@ -1,34 +1,53 @@
 
 // Slideshow
+// Initialize slide index
 let slideIndex = 1;
-showSlides(slideIndex);
+
+// Display the first slide when the page loads
+document.addEventListener("DOMContentLoaded", function() {
+    showSlides(slideIndex);
+});
 
 // Next/previous controls
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+    showSlides(slideIndex += n);
 }
 
 // Thumbnail image controls
 function currentSlide(n) {
-  showSlides(slideIndex = n);
+    showSlides(slideIndex = n);
 }
 
+// Function to show slides
 function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) { slideIndex = 1; }
+    if (n < 1) { slideIndex = slides.length; }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none"; // Hide all slides
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block"; // Show the current slide
+    dots[slideIndex - 1].className += " active";
 }
-// - slideshow
+
+// Auto-slide functionality
+function autoSlides() {
+  slideIndex++;
+  showSlides(slideIndex);
+  setTimeout(autoSlides, 5000); // Change slide every 5 seconds
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  showSlides(slideIndex); // Ensure the first slide is shown on page load
+  autoSlides(); // Start auto-sliding
+});
+// - Slideshow
+
 
 
 
@@ -63,17 +82,28 @@ function closeNav() {
 
 
 
+
+
+
+
 // Character container
-filterSelection("all")
-function filterSelection(c) {
-  var x, i;
-  x = document.getElementsByClassName("filterDiv");
-  if (c == "all") c = "";
-  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
-  for (i = 0; i < x.length; i++) {
-    w3RemoveClass(x[i], "show");
-    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-  }
+function filterSelection(category) {
+  // Get all filterable elements
+  const elements = document.querySelectorAll('.filterDiv');
+
+  // Show/hide elements based on the category
+  elements.forEach(el => {
+      if (category === 'all' || el.classList.contains(category)) {
+          el.classList.add('show');
+      } else {
+          el.classList.remove('show');
+      }
+  });
+
+  // Update the active button
+  const buttons = document.querySelectorAll('#myBtnContainer .btn');
+  buttons.forEach(btn => btn.classList.remove('active')); // Remove active from all
+  event.currentTarget.classList.add('active'); // Add active to clicked button
 }
 
 // Show filtered elements
@@ -118,24 +148,15 @@ for (var i = 0; i < btns.length; i++) {
 
 
 
+
+
+
+
+
+
+
+
 // Character selection
-// Add click event listener to all buttons
-document.querySelectorAll('.filterDiv').forEach(button => {
-  button.addEventListener('click', (event) => {
-      // Ensure the clicked element is the button itself
-      const targetButton = event.currentTarget;
-
-      // Get the value from the button's "value" attribute
-      const value = targetButton.value;
-
-      // Update the part of the page with the selected character
-      const display = document.getElementById('selected-character');
-      if (display) {
-          display.textContent = `You selected: ${value}`;
-      }
-  });
-});
-
 // - Character selection
 
 
