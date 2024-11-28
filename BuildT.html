@@ -540,69 +540,175 @@
                     }
                 </script>
             </div>
-            <section id="relic-content-header">
+
+            <section id="relic-header">
                 <h2>Relic selection</h2>
                 <div id="selected-relic" style="margin-top: 20px; color: rgb(124, 0, 0); font-size: 16px;">
                     You selected: none
                 </div>
             
-                <div id="relic-content-info">
+                <div id="content-info">
     
     
                     <div id="relicBtnContainer">
-                        <button class="relic-btn" onclick="filterRelicSelection('all')">All</button>
-                        <button class="relic-btn" onclick="filterRelicSelection('2RS')">2 Piece sets</button>
-                        <button class="relic-btn" onclick="filterRelicSelection('4RS')">4 Piece sets</button>
+                        <button class="btn" onclick="filterRelicSelection('all')">All</button>
+                        <button class="btn" onclick="filterRelicSelection('2RS')">2 Piece sets</button>
+                        <button class="btn" onclick="filterRelicSelection('4RS')">4 Piece sets</button>
                     </div>
             
                     <!-- The filterable elements -->
                     <div class="relic-container">
-                        <button class="filterRelic 2RS" value="Sacerdos' Relived Ordeal" data-description="A relic that grants increased healing and support stats." style="background-image: url('https://img.game8.co/4015302/2dd33774607aa01aa5d6b6dc7d327425.png/show');">
+                        <button class="relicDiv 2RS" value="Sacerdos' Relived Ordeal" data-description="2-Pc: Increases SPD by 6%." style="background-image: url('https://img.game8.co/4015302/2dd33774607aa01aa5d6b6dc7d327425.png/show');">
                             <span>(2) SRO</span>
                         </button>
-                        <button class="filterRelic 4RS" value="Sacerdos' Relived Ordeal" data-description="Boosts both healing and resilience when fully equipped." style="background-image: url('https://img.game8.co/4015302/2dd33774607aa01aa5d6b6dc7d327425.png/show');">
+                        <button class="relicDiv 4RS" value="Sacerdos' Relived Ordeal" data-description="2-Pc: Increases SPD by 6%&#10;4-Pc: When using Skill or Ultimate on one ally target, increases the ability-using target's CRIT DMG by 18%, lasting for 2 turn(s). This effect can stack up to 2 time(s)." style="background-image: url('https://img.game8.co/4015302/2dd33774607aa01aa5d6b6dc7d327425.png/show');">
                             <span>(4) SRO</span>
                         </button>
-                        <button class="filterRelic 2RS" value="Scholar Lost in Erudition" data-description="Increases skill damage and elemental efficiency." style="background-image: url('https://img.game8.co/4015301/f4f772b5e0130f4b01a0d184109855f9.png/show');">
+                        <button class="relicDiv 2RS" value="Scholar Lost in Erudition" data-description="yy" style="background-image: url('https://img.game8.co/4015301/f4f772b5e0130f4b01a0d184109855f9.png/show');">
                             <span>(2) SLiE</span>
                         </button>
+                        <button class="relicDiv 4RS" value="Scholar Lost in Erudition" data-description="yy" style="background-image: url('https://img.game8.co/4015301/f4f772b5e0130f4b01a0d184109855f9.png/show');">
+                            <span>(4) SLiE</span>
+                        </button>
+                        <button class="relicDiv 2RS" value=" The Wind-Soaring Valorous" data-description="yy" style="background-image: url('https://img.game8.co/3905921/9c56f37e1a430052970059f1ed733ac2.png/show');">
+                            <span>(2) TWSV</span>
+                        </button>
+                        <button class="relicDiv 4RS" value=" The Wind-Soaring Valorous" data-description="yy" style="background-image: url('https://img.game8.co/3905921/9c56f37e1a430052970059f1ed733ac2.png/show');">
+                            <span>(4) TWSV</span>
+                        </button>
+                        <button class="relicDiv 2RS" value="Iron Cavalry Against the Scourge" data-description="yy" style="background-image: url('https://img.game8.co/3905922/1c3706822a4484a3765f41d6f04316aa.png/show');">
+                            <span>(2) ICAtS</span>
+                        </button>
+                        <button class="relicDiv 4RS" value="Iron Cavalry Against the Scourge" data-description="yy" style="background-image: url('https://img.game8.co/3905922/1c3706822a4484a3765f41d6f04316aa.png/show');">
+                            <span>(4) ICAtS</span>
+                        </button>
+                        <button class="relicDiv 2RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(2) zz</span>
+                        </button>
+                        <button class="relicDiv 4RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(4) zz</span>
+                        </button>
+                        <button class="relicDiv 2RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(2) zz</span>
+                        </button>
+                        <button class="relicDiv 4RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(4) zz</span>
+                        </button>
+                        <button class="relicDiv 2RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(2) zz</span>
+                        </button>
+                        <button class="relicDiv 4RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(4) zz</span>
+                        </button>
+                        <button class="relicDiv 2RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(2) zz</span>
+                        </button>
+                        <button class="relicDiv 4RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(4) zz</span>
+                        </button>
+                        <button class="relicDiv 2RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(2) zz</span>
+                        </button>
+                        <button class="relicDiv 4RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(4) zz</span>
+                        </button>
+                        <button class="relicDiv 2RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(2) zz</span>
+                        </button>
+                        <button class="relicDiv 4RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(4) zz</span>
+                        </button>
+                        <button class="relicDiv 2RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(2) zz</span>
+                        </button>
+                        <button class="relicDiv 4RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(4) zz</span>
+                        </button>
+                        <button class="relicDiv 2RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(2) zz</span>
+                        </button>
+                        <button class="relicDiv 4RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(4) zz</span>
+                        </button>
+                        <button class="relicDiv 2RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(2) zz</span>
+                        </button>
+                        <button class="relicDiv 4RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(4) zz</span>
+                        </button>
+                        <button class="relicDiv 2RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(2) zz</span>
+                        </button>
+                        <button class="relicDiv 4RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(4) zz</span>
+                        </button>
+                        <button class="relicDiv 2RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(2) zz</span>
+                        </button>
+                        <button class="relicDiv 4RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(4) zz</span>
+                        </button>
+                        <button class="relicDiv 2RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(2) zz</span>
+                        </button>
+                        <button class="relicDiv 4RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(4) zz</span>
+                        </button>
+                        <button class="relicDiv 2RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(2) zz</span>
+                        </button>
+                        <button class="relicDiv 4RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(4) zz</span>
+                        </button>
+                        <button class="relicDiv 2RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(2) zz</span>
+                        </button>
+                        <button class="relicDiv 4RS" value="cc" data-description="yy" style="background-image: url('xx');">
+                            <span>(4) zz</span>
+                        </button>
+                        
 
-                            <script>
+                        <script>
+                            document.addEventListener("DOMContentLoaded", () => {
+                                const relicButtons = document.querySelectorAll(".relicDiv");
+                                const selectedRelicDiv = document.getElementById("selected-relic");
 
-                                document.addEventListener("DOMContentLoaded", () => {
-                                    const relicButtons = document.querySelectorAll(".filterRelic");
-                                    const selectedRelicDiv = document.getElementById("selected-relic");
+                                relicButtons.forEach(button => {
+                                    button.addEventListener("click", () => {
+                                        const relicName = button.value;
+                                        const relicDescription = button.getAttribute("data-description");
 
-                                    relicButtons.forEach(button => {
-                                        button.addEventListener("click", () => {
-                                            const relicName = button.value;
-                                            const relicDescription = button.getAttribute("data-description");
-
-                                            // Update the selected relic text
-                                            selectedRelicDiv.innerHTML = `You selected: <strong>${relicName}</strong><br>${relicDescription}`;
-                                        });
+                                        // Update the selected relic text with line breaks and formatting
+                                        selectedRelicDiv.innerHTML = `
+                                            <div>
+                                                <strong>You selected: ${relicName}</strong><br>
+                                                ${relicDescription}
+                                            </div>
+                                        `;
                                     });
-
-                                    // Filter function for relics
-                                    function filterRelicSelection(category) {
-                                        const items = document.querySelectorAll(".filterRelic");
-                                        if (category === "all") {
-                                            items.forEach(item => item.style.display = "inline-block");
-                                        } else {
-                                            items.forEach(item => {
-                                                if (item.classList.contains(category)) {
-                                                    item.style.display = "inline-block";
-                                                } else {
-                                                    item.style.display = "none";
-                                                }
-                                            });
-                                        }
-                                    }
-
-                                    // Attach filterRelicSelection function to the global scope for button clicks
-                                    window.filterRelicSelection = filterRelicSelection;
                                 });
-                            </script>
+
+                                // Filter function for relics
+                                function filterRelicSelection(category) {
+                                    const items = document.querySelectorAll(".relicDiv");
+                                    if (category === "all") {
+                                        items.forEach(item => item.style.display = "inline-block");
+                                    } else {
+                                        items.forEach(item => {
+                                            if (item.classList.contains(category)) {
+                                                item.style.display = "inline-block";
+                                            } else {
+                                                item.style.display = "none";
+                                            }
+                                        });
+                                    }
+                                }
+
+                                // Attach filterRelicSelection function to the global scope for button clicks
+                                window.filterRelicSelection = filterRelicSelection;
+                            });
+                        
+                        </script>
                                                     
                         
         </section>
