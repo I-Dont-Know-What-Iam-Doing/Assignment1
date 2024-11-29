@@ -56,8 +56,39 @@
                 <li>
                     Character icons are clickable, information will be shown at the bottom of the tierlist about the respective character
                 </li>
+                <button><b><a href="">Refresh</a></b></button>
             </ul>
+            
         </div>
+        
+
+        <div id="characterInfo">
+            <h3>Information</h3>
+            <table id="infoTable">
+                <tr>
+                    <td><span><u>NAME</u></span>
+                        <p id="charName">N/A</p></td>
+                </tr>
+                <tr>
+                    <td><span><u>DESCRIPTION</u></span>
+                        <p id="charDesc">N/A</p></td>
+                </tr>
+                <tr>
+                    <td><span><u>BUILD SPECIFICATIONS</u></span>
+                        <p id="charBuild">N/A</p></td>
+                </tr>
+                <tr>
+                    <td>
+                        <span><u>TEAM COMPOSITIONS</u> <i>(Best to worst)</i></span>
+                        <div id="characterGrid">N/A</div> <!-- Changed from <p> to <div> -->
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+
+
         
         <table id="tierListTable">
             <thead>
@@ -73,25 +104,28 @@
                 <!-- SS Tier -->
                 <tr class="ss-tier">
                     <td class="overall-column">
-                        <button class="filterDiv10 overall" value="SS Tier" style="background-image: url('https://img.game8.co/3866215/f7593e81bc8d072e4683e1f44d4a5528.png/show');"></button>
-                        <!-- Add more characters for Overall -->
+                        <a href="#charInfoBox">
+                            <button class="filterDiv10 overall" value="SS Tier" style="background-image: url('https://img.game8.co/3866215/f7593e81bc8d072e4683e1f44d4a5528.png/show');"></button>
+                        </a>
                     </td>
                     <td class="dps">
-                        <button class="filterDiv10 dps" value="Acheron" style="background-image: url('https://starrail.honeyhunterworld.com/img/character/acheron-character_head_icon.webp?x49467');">
-                            <span>Acheron</span>
-                        </button>
-                        <button class="filterDiv10 dps" value="Firefly" style="background-image: url('https://starrail.honeyhunterworld.com/img/character/firefly-character_wait_icon.webp?x49467');">
-                            <span>Firefly</span>
-                        </button>
-                        <button class="filterDiv10 dps" value="Feixiao" style="background-image: url('https://starrail.honeyhunterworld.com/img/character/feixiao-character_head_icon.webp?x49467');">
-                            <span>Feixiao</span>
-                        </button>
-                        <button class="filterDiv10 dps" value="Yunli" style="background-image: url('https://starrail.honeyhunterworld.com/img/character/yunli-character_head_icon.webp?x49467');">
-                            <span>Yunli</span>
-                        </button>
-                        <button class="filterDiv10 dps" value="Boothill" style="background-image: url('https://starrail.honeyhunterworld.com/img/character/boothill-character_head_icon.webp?x49467');">
-                            <span>Boothill</span>
-                        </button>
+                        <a href="#charInfoBox">
+                            <button class="filterDiv10 dps" value="Acheron" style="background-image: url('https://starrail.honeyhunterworld.com/img/character/acheron-character_head_icon.webp?x49467');">
+                                <span>Acheron</span>
+                            </button>
+                            <button class="filterDiv10 dps" value="Firefly" style="background-image: url('https://starrail.honeyhunterworld.com/img/character/firefly-character_wait_icon.webp?x49467');">
+                                <span>Firefly</span>
+                            </button>
+                            <button class="filterDiv10 dps" value="Feixiao" style="background-image: url('https://starrail.honeyhunterworld.com/img/character/feixiao-character_head_icon.webp?x49467');">
+                                <span>Feixiao</span>
+                            </button>
+                            <button class="filterDiv10 dps" value="Yunli" style="background-image: url('https://starrail.honeyhunterworld.com/img/character/yunli-character_head_icon.webp?x49467');">
+                                <span>Yunli</span>
+                            </button>
+                            <button class="filterDiv10 dps" value="Boothill" style="background-image: url('https://starrail.honeyhunterworld.com/img/character/boothill-character_head_icon.webp?x49467');">
+                                <span>Boothill</span>
+                            </button>
+                        </a>
                     </td>
 
                     <td class="support">
@@ -169,12 +203,6 @@
                         </button>
                         <button class="filterDiv10 dps" value="Argenti" style="background-image: url('https://starrail.honeyhunterworld.com/img/character/argenti-character_head_icon.webp?x49467');">
                             <span>Argenti</span>
-                        </button>
-                        <button class="filterDiv10 dps" value="Topaz" style="background-image: url('https://starrail.honeyhunterworld.com/img/character/topaz-numby-character_head_icon.webp?x49467');">
-                            <span>Topaz</span>
-                        </button>
-                        <button class="filterDiv10 dps" value="March 7th - The Hunt" style="background-image: url('https://starrail.honeyhunterworld.com/img/character/march-7th-character-2_head_icon.webp?x49467');">
-                            <span>March 7th</span>
                         </button>
                         <button class="filterDiv10 dps" value="Moze" style="background-image: url('https://starrail.honeyhunterworld.com/img/character/moze-character_head_icon.webp?x49467');">
                             <span>Moze</span>
@@ -365,26 +393,15 @@
             </tbody>
         </table>
         
-        <!-- Character Information Section -->
-        <div id="characterInfo">
-            <h3>Information</h3>
-            <table id="infoTable">
-                <tr>
-                    <td><span>Name | </span> <span id="charName">N/A</span></td>
-                </tr>
-                <tr>
-                    <td><span>Description | </span> <span id="charDesc">N/A</span></td>
-                </tr>
-            </table>
-        </div>
-        
-
 
             <script>
                 document.addEventListener("DOMContentLoaded", () => {
                     const characterButtons = document.querySelectorAll(".filterDiv10");
                     const charNameElement = document.getElementById("charName");
                     const charDescElement = document.getElementById("charDesc");
+                    const charBuild = document.getElementById("charBuild")
+                    const characterGrid = document.getElementById("characterGrid");
+
 
                     const descriptions = {
                         "SS Tier": "The best of the best in the game. These characters are must-haves and will greatly make your gameplay experience easier.",
@@ -396,15 +413,79 @@
                         "Trailblazer - Destruction": "A DPS character with high speed and damage output.",
                         "Trailblazer - Preservation": "A support character that provides healing and buffs.",
                         "Dan Heng - Imbibitor Lunae": "A support character that specializes in debuffing enemies.",
+                        "Dan Heng": "Dan Heng is a free playable character you can use to take down Elite enemies and bosses who are weak to Wind. As a Hunt unit, Dan Heng may struggle in scenarios where there are multiple enemies or against Elite enemies that can summon more foes.",
+                        "March 7th": "March 7th plays a vital role in Remembrance teams for Simulated Universe since her Ultimate can apply Frozen onto enemies. Combined with the Dissociation effect in the Path of Remembrance, March can easily help you clear content such as Swarm Disaster and Gold and Gears.",
+                        "March 7th - The Hunt": "March 7th (Hunt) is a free-to-play DPS character that can designate one of her allies as her Shifu. Depending on the Shifu's Path, her Basic ATK and Enhanced Basic ATK will receive additional effects. These effects can be increased damage or increased Break Efficiency on her attacks, which lets her become a CRIT DPS or a Break DPS. We highly recommend investing in March 7th's Hunt Variant if you need a versatile DPS.",
+                        "Welt": "xx",
+                        "Himeko": "xx",
+                        "Boothill": "xx",
+                        "Acheron": "Acheron is a remarkably powerful DPS that can annihilate enemies with her powerful Ultimate that can ignore weakness type and does not have an energy cost. If you are looking for a very strong Hypercarry that can also perform well against enemies not weak to Lightning, then Acheron is a must-pull!",
+                        "Arlan": "xx",
+                        "Firefly": "Firefly is a powerful Destruction DPS who can deal a huge amount of Break DMG in her Complete Combustion state. <br> Firefly's attacks will deplete her own HP, but it can be restored during Complete Combustion. Even if an enemy isn't weak to Fire, Firefly can still reduce their Toughness and can apply the Fire Weakness through the use of her Ultimate. This allows her to easily Weakness Break an enemy regardless of their Weakness Type. With absurd Break DMG, self-survival, and the ability to apply Fire Weakness, Firefly is an amazing DPS unit to pull for. She is a great unit, especially for those who want a DPS to fight against any element.",
+                        "Feixiao": "xx",
+                        "Yunli": "xx",
+                        "Ruan Mei": "Ruan Mei is a top-tier support who can buff the entire party's DMG, SPD, and Break Efficiency. Ruan Mei can also delay an enemy's recovery after Weakness Break and deal a decent amount of bonus DMG. Ruan Mei is the best-in-slot teammate in a lot of team comps and is a must get for the utility she provides.",
+                        "Robin": "Robin is a unique Harmony character who can provide strong buffs to the party such as a party-wide DMG boost and CRIT DMG buff, and her Ultimate can immediately make allies take action. Her Concerto state also brings a lot to the table, such as an ATK buff that scales based on her ATK and the extra damage she deals to enemies allies have attacked. If you need a universal Harmony character that brings a lot of offensive utility and buffs or have a Follow-up attack team, then Robin is worth pulling for.",
+                        "Sparkle": "Sparkle is a very useful support for DPS units who consume a lot of Skill Points. Sparkle can Advance a character's turn forward and increase the entire party's DMG as long as an allied unit consumes a Skill Point. Pull for Sparkle if you want to enhance your Mono-Quantum team or if you need a unit that can provide an abundance of Skill Points and provide turn advancement.",
+                        "Aventurine": "Aventurine is a Sustain unit who can provide strong shields to the party and deal a decent amount of DMG to enemies. Both his shields and DMG output can increase depending on the amount of DEF stats he has. If you have a Follow-up attack team or need another sustain unit that can also deal DMG, Aventurine is great to pull for.",
+                        "Lingsha": "Lingsha is a healer that can summon Fuyuan on the field. When Fuyuan takes action, Lingsha can unleash a Follow-up attack that can deal damage to enemies and heal all allies. Lingsha's Ultimate can heal all allies and inflict the Befog debuff on an enemy, which increases the Break DMG they take from your characters. Pull for Lingsha if you want an upgrade to your Break Effect teams or are in need of another Sustain unit.",
+                        "Bronya": "Bronya is one of the most useful characters in the game so you should definitely get her if you have the chance. The only problem is that Bronya isn't featured in any banner yet so there's no sure-fire way to get her even with the pity system in play.",
+                        "Tingyun": "Tingyun is a Lightning Harmony character that can provide offensive buffs and restore the Energy of a single ally. Her kit is focused on supporting a DPS character and enabling them as a hyper carry. She is a universal character as well and fits into almost any team. If you find her kit interesting or need a Lightning support character that can provide offensive buffs for your DPS, then Tingyun is a great choice.",
+                        "Huohuo": "Huohuo's overall healing is way above average since her Skill can heal multiple characters while also providing a bit of healing outside of her turn. More importantly, Huohuo can also provide Energy Regeneration and ATK buffs from her Ultimate. Compared to other top-tier Defensive Support characters, you may find Huohuo unable to match in terms of raw sustain power, but she can make up for it by increasing the party's damage output. After all, you won't take damage if the enemy is already dead.",
+                        "Fu Xuan": "xx",
+                        "Gepard": "xx",
+                        "Bailu": "xx",
+                        "Rappa": "xx",
+                        "Dr. Ratio": "xx",
+                        "Seele": "xx",
+                        "Blade": "xx",
+                        "Jingliu": "xx",
+                        "Kafka": "xx",
+                        "Black Swan": "xx",
+                        "Jade": "xx",
+                        "Argenti": "xx",
+                        "Topaz": "xx",
+                        "Moze": "xx",
+                        "Silver Wolf": "xx",
+                        "Jiaoqiu": "xx",
+                        "Pela": "xx",
+                        "Asta": "xx",
+                        "Hanya": "xx",
+                        "Gallagher": "xx",
+                        "Luocha": "xx",
+                        "Lynx": "xx",
+                        "Clara": "xx",
+                        "Guinaifen": "xx",
+                        "Jing Yuan": "xx",
+                        "Qingque": "xx",
+                        "Herta": "xx",
+                        "Xueyi": "xx",
+                        "Serval": "xx",
+                        "Yanqing": "xx",
+                        "Misha": "xx",
+                        "Luka": "xx",
+                        "Sampo": "xx",
+                        "Dan Heng": "xx",
+                        "Sushang": "xx",
+                        "Yukong": "xx",
+                        "Natasha": "xx",
+
+                    };
+
+                    const builds = {
+                        "Trailblazer - Harmony": "xx",
+                        "Trailblazer - Destruction": "xx",
+                        "Trailblazer - Preservation": "xx",
+                        "Dan Heng - Imbibitor Lunae": "xx",
                         "Dan Heng": "xx",
                         "March 7th": "xx",
                         "March 7th - The Hunt": "xx",
                         "Welt": "xx",
                         "Himeko": "xx",
                         "Boothill": "xx",
-                        "Acheron": "Acheron is a remarkably powerful DPS that can annihilate enemies with her powerful Ultimate that can ignore weakness type and does not have an energy cost. If you are looking for a very strong Hypercarry that can also perform well against enemies not weak to Lightning, then Acheron is a must-pull!",
+                        "Acheron": "Despite being a Nihility unit, Acheron works as your typical DPS who takes advantage of CRIT Rate and CRIT DMG stats. Speed boots are great for Acheron since they increase her action count, which helps to increase Slashed Dream stacks. It's also good if you're trying to hit speed breakpoints for Ornaments that require it. However, you can also use ATK% boots for Acheron if she's paired with Sparkle or Bronya. As for her Sphere, you can choose between Lightning DMG and ATK%, depending on which has better sub-stats. ATK% is slightly better since Acheron already has a ton of DMG buffs from her Traces and Signature Light Cone.",
                         "Arlan": "xx",
-                        "Firefly": "Firefly is a powerful Destruction DPS who can deal a huge amount of Break DMG in her Complete Combustion state. Firefly's attacks will deplete her own HP, but it can be restored during Complete Combustion. Even if an enemy isn't weak to Fire, Firefly can still reduce their Toughness and can apply the Fire Weakness through the use of her Ultimate. This allows her to easily Weakness Break an enemy regardless of their Weakness Type. With absurd Break DMG, self-survival, and the ability to apply Fire Weakness, Firefly is an amazing DPS unit to pull for. She is a great unit, especially for those who want a DPS to fight against any element.",
+                        "Firefly": "The majority of Firefly's DPS will come from Break DMG, so CRIT Rate and CRIT DMG are not important for her. <br> Aside from Break Effect, the ATK stat is also important since this also will increase Firefly's Break Effect. Firefly should try and reach for a total of 360% Break Effect in combat to deal the maximum amount of Super Break DMG provided by her Bonus Ability (Module β: Autoreactive Armor). Break Effect support characters and Relic sets can help you achieve that. At least 2600 ATK is recommended to provide a huge boost of 64% Break Effect to Firefly and make it easier for her to reach the 360% Break Effect requirement. 150 SPD is an ideal goal for Firefly since it provides her with a lot of turns before her Complete Combustion state ends. You can also try push her Base SPD to 154, which will increase to 164 SPD due to Ruan Mei's buff. This is an important speed breakpoint since it gives you 3 attacks in the first cycle (of MoC or PF) and extra attack during Firefly's Combustion State. Techincally, the actual Speed Breakpoint of Firefly with Ruan Mei is 164.34, which is achieveable with Ruan Mei's talent at level 10. However, due to decimal points not being shown in-game, people generally recommend 155 Base SPD instead.",
                         "Feixiao": "xx",
                         "Yunli": "xx",
                         "Ruan Mei": "xx",
@@ -452,16 +533,422 @@
                         "Sushang": "xx",
                         "Yukong": "xx",
                         "Natasha": "xx",
+                    };
+
+                    const images = {
+                        "Acheron": [
+                            { src: "https://starrail.honeyhunterworld.com/img/character/acheron-character_head_icon.webp?x49467", text: "Acheron DPS" },
+                            { src: "zz", text: "Jiaoqiu Nihility" },
+                            { src: "zz", text: "Sparkle Harmony" },
+                            { src: "zz", text: "Aventurine Sustain" },
+                            { src: "https://starrail.honeyhunterworld.com/img/character/acheron-character_head_icon.webp?x49467", text: "Acheron DPS" },
+                            { src: "zz", text: "Jiaoqiu Support" },
+                            { src: "zz", text: "Pela Support" },
+                            { src: "zz", text: "Aventurine Sustain" },
+                            { src: "https://starrail.honeyhunterworld.com/img/character/acheron-character_head_icon.webp?x49467", text: "Acheron DPS" },
+                            { src: "zz", text: "Asta Support" },
+                            { src: "zz", text: "Trailblazer Support" },
+                            { src: "zz", text: "Lynx Sustain" }
+                        ],
+                        "Firefly": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Feixiao": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Yunli": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Boothill": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Ruan Mei": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Robin": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Sparkle": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Bronya": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Tingyun": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Aventurine": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Lingsha": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Fu Xuan": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Huohuo": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Dr. Ratio": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Rappa": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Jingliu": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Dan Heng - Imbibitor Lunae": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Kafka": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Seele": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Blade": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Black Swan": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Jade": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Argenti": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Moze": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Trailblazer - Harmony": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Silver Wolf": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Jiaoqiu": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Topaz": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Pela": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "March 7th - The Hunt": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Asta": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Hanya": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Gallagher": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Luocha": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Lynx": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Clara": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Himeko": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Guinaifen": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Jing Yuan": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Qingque": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Herta": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Xueyi": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Welt": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Gepard": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Bailu": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Hook": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Serval": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Yanqing": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Misha": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Luka": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Sampo": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Dan Heng": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Sushang": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Yukong": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Natasha": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "March 7th": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Trailblazer - Preservation": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Trailblazer - Destruction": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
+                        "Arlan": [
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" },
+                            { src: "zzz", text: "xxx" }
+                        ],
 
                     };
 
+                    // Function to update character info dynamically
+                    function updateCharacterInfo(character) {
+                        // Update the text content for name, description, and build
+                        charNameElement.textContent = character;
+                        charDescElement.innerHTML = descriptions[character] || "No description available.";
+                        charBuild.textContent = builds[character] || "No build information available.";
+
+                        // Clear the grid before adding new images
+                        characterGrid.innerHTML = "";
+
+                        // Get the images and text for the selected character
+                        const characterImages = images[character] || [];
+
+                        // Create the grid items dynamically
+                        characterImages.forEach((item, index) => {
+                            const imageBox = document.createElement("div");
+                            imageBox.classList.add("image-box");
+                            imageBox.style.backgroundImage = `url(${item.src})`;
+
+                            const overlay = document.createElement("div");
+                            overlay.classList.add("overlay");
+
+                            const imageText = document.createElement("div");
+                            imageText.classList.add("image-text");
+                            imageText.textContent = item.text; // Use the custom text for each image
+
+                            imageBox.appendChild(overlay);
+                            imageBox.appendChild(imageText);
+                            characterGrid.appendChild(imageBox);
+                        });
+                    }
+
+                    // Add event listeners for character buttons
                     characterButtons.forEach(button => {
                         button.addEventListener("click", () => {
-                            const tier = button.value;
-                            charNameElement.textContent = tier; // Set the character name
-                            charDescElement.textContent = descriptions[tier] || "No description available."; // Show the description
+                            const character = button.value;
+                            updateCharacterInfo(character);
                         });
                     });
+
+                    // Optionally, set a default character info on page load
+                    updateCharacterInfo('Firefly');
                 });
             </script>
         </section>

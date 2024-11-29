@@ -86,6 +86,11 @@ main {
   
 }
 
+
+
+
+
+
 /* + Slideshow */
 * {box-sizing:border-box}
 
@@ -528,7 +533,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.55);
+  background-color: rgba(0, 0, 0, 0.55);  /* Semi-transparent dark background */
   z-index: 1;
   border-radius: 4px;
 }
@@ -574,8 +579,6 @@ main {
   width: 80px; /* Thinner column width */
 }
 
-
-
 .tier-separator {
   height: 1px;
   background-color: rgba(0, 0, 0, 0.021); /* Red separator line */
@@ -604,19 +607,6 @@ main {
   background-color: #d7d4ed;
 }
 
-#characterInfo {
-  margin-top: 20px;
-  font-size: 16px;
-  background-color: #f9f9f9;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-}
-
-#infoTable {
-  width: 100%;
-}
-
 #infoTable td {
   padding: 5px 10px;
   border-bottom: 1px solid #ddd;
@@ -635,3 +625,112 @@ main {
 .filterDiv10:active {
   transform: scale(0.98); /* Slightly shrink the button for the click effect */
 }
+
+#characterInfo {
+  margin-top: 20px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+#characterInfo table {
+  width: 100%; /* Ensure the table takes up the full width */
+}
+
+#infoTable {
+  width: 100%;
+}
+
+#infoTable i {
+  font-size: 13px;
+}
+
+#characterGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Create 4 equal-width columns */
+  gap: 10px; /* Spacing between the boxes */
+  justify-items: center; /* Ensure the grid items are centered in each column */
+  margin-top: 10px;
+  width: 100%; /* Make sure the grid takes up the full width of the table */
+}
+
+/* Make image boxes in the info section the same size as the ones in the tier list */
+#characterGrid .image-box {
+  width: 80px;   /* Match tier list box width */
+  height: 80px;  /* Match tier list box height */
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  position: relative;
+  margin: 5px;  /* Add some space between the boxes */
+}
+
+#characterGrid .image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image doesn't stretch */
+}
+
+#characterGrid td {
+  display: flex; /* Flexbox for distributing items within the table cells */
+  justify-content: center; /* Center the image boxes inside each table cell */
+  padding: 0; /* Remove padding from cells */
+}
+
+/* Image box container */
+.image-box {
+  position: relative;
+  width: 100%; /* Ensure the image box stretches to fill the column */
+  height: 100px; /* Set the height of each image box */
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Overlay effect for opacity on the image */
+.image-box .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay to dim the image */
+  z-index: 1;
+  border-radius: 8px;
+}
+
+/* Centered text on top of the image */
+.image-box .image-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 2; /* Ensure text is above the overlay */
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7); /* Optional shadow for better text visibility */
+}
+
+.image-box:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+#VerySpecificCentreAlignment {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+
+
+
