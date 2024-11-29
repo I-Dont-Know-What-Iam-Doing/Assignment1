@@ -44,35 +44,355 @@
             
             <img src="burger.png" alt="Hamburger Menu" id="hamburger" onclick="openNav()">
             <div style="text-align: center;">Tier List</div>
-
-
-            
         </h1>
     </header>
     <main>
         <div id="content-table">
             <p>
                 <img src="list.png" id="list">
-                List of contents
+                Tier list manual
             </p>
             <ul>
-                <li id="content">
-                    <a href="">
-                        Build Analysis
-                    </a>
-                </li>
                 <li>
-                    <a href="">
-                        Build History
-                    </a>
+                    Character icons are clickable, information will be shown at the bottom of the tierlist about the respective character
                 </li>
             </ul>
         </div>
         
-        <section id="content-header">
-            <h2>Summary of update</h2>
-            <div id="content-info">Information Information Information Information Information Information Information Information Information Information Information Information Information Information Information Information Information Information Information Information Information Information Information Information Information Information Information Information Information Information Information Information Information </div>
+        <table id="tierListTable">
+            <thead>
+                <tr>
+                    <th>Overall Tier</th>
+                    <th>DPS</th>
+                    <th>Support</th>
+                    <th>Sustain</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <!-- SS Tier -->
+                <tr class="ss-tier">
+                    <td class="overall-column">
+                        <button class="filterDiv10 overall" value="SS Tier" style="background-image: url('https://img.game8.co/3866215/f7593e81bc8d072e4683e1f44d4a5528.png/show');"></button>
+                        <!-- Add more characters for Overall -->
+                    </td>
+                    <td class="dps">
+                        <button class="filterDiv10 dps" value="Acheron" style="background-image: url('dps1-image-url');">
+                            <span>Acheron</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="Firefly" style="background-image: url('dps2-image-url');">
+                            <span>Firefly</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="Feixiao" style="background-image: url('dps1-image-url');">
+                            <span>Feixiao</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="Yunli" style="background-image: url('dps2-image-url');">
+                            <span>Yunli</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="Boothill" style="background-image: url('dps2-image-url');">
+                            <span>Boothill</span>
+                        </button>
+                    </td>
+
+                    <td class="support">
+                        <button class="filterDiv10 support" value="zzz" style="background-image: url('support1-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 support" value="zzz" style="background-image: url('support2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 support" value="zzz" style="background-image: url('support1-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 support" value="zzz" style="background-image: url('support2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 support" value="zzz" style="background-image: url('support1-image-url');">
+                            <span>zzz</span>
+                        </button>
+                    </td>
+
+                    <td class="sustain">
+                        <button class="filterDiv10 sustain" value="zzz" style="background-image: url('support1-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 sustain" value="zzz" style="background-image: url('support2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 sustain" value="zzz" style="background-image: url('support1-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 sustain" value="zzz" style="background-image: url('support2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                    </td>
+                </tr>
+                <!-- Separator Line Between Tiers -->
+                <tr class="separator">
+                    <td colspan="4" class="tier-separator"></td>
+                </tr>
+
+
+                <!-- S Tier -->
+                <tr class="s-tier">
+                    <td class="overall-column">
+                        <button class="filterDiv10 overall" value="S Tier" style="background-image: url('https://img.game8.co/3866212/95bba9e56b8e7a3ac5200597787a49b6.png/show');"></button>
+                        <!-- Add more characters for Overall -->
+                    </td>
+                    <td class="dps">
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                    </td>
+
+
+                    <td class="support">
+                        <button class="filterDiv10 support" value="zzz" style="background-image: url('support1-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 support" value="zzz" style="background-image: url('support2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 support" value="zzz" style="background-image: url('support1-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 support" value="zzz" style="background-image: url('support2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 support" value="zzz" style="background-image: url('support1-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 support" value="zzz" style="background-image: url('support1-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 support" value="zzz" style="background-image: url('support2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 support" value="zzz" style="background-image: url('support1-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 support" value="zzz" style="background-image: url('support2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                    </td>
+                    <td class="sustain">
+                        <!-- Sustain Characters can be added here -->
+                    </td>
+                </tr>
+                <!-- Separator Line Between Tiers -->
+                <tr class="separator">
+                    <td colspan="4" class="tier-separator"></td>
+                </tr>
+
+
+                <!-- A Tier -->
+                <tr class="a-tier">
+                    <td class="overall-column">
+                        <button class="filterDiv10 overall" value="A Tier" 
+                        style="background-image: url('https://img.game8.co/3866214/6f328c4bf4d6607d02191039ea19f806.png/show');"></button>
+                        <!-- Add more characters for Overall -->
+                    </td>
+                    <td class="dps">
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                    </td>
+
+
+                    <td class="support">
+                        <button class="filterDiv10 support" value="Support1" style="background-image: url('support1-image-url');">
+                            <span>Support 1</span>
+                        </button>
+                    </td>
+
+                    <td class="sustain">
+                        <!-- Sustain Characters can be added here -->
+                    </td>
+                </tr>
+                <!-- Separator Line Between Tiers -->
+                <tr class="separator">
+                    <td colspan="4" class="tier-separator"></td>
+                </tr>
+
+
+                <!-- B Tier -->
+                <tr class="b-tier">
+                    <td class="overall-column">
+                        <button class="filterDiv10 overall" value="B Tier" style="background-image: url('https://img.game8.co/3866213/5e432112fb0fdac967078ee4c99ae052.png/show');"></button>
+                        <!-- Add more characters for Overall -->
+                    </td>
+                    <td class="dps">
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                    </td>
+
+
+                    <td class="support">
+                        <button class="filterDiv10 support" value="Support1" style="background-image: url('support1-image-url');">
+                            <span>Support 1</span>
+                        </button>
+                    </td>
+
+                    <td class="sustain">
+                        <!-- Sustain Characters can be added here -->
+                    </td>
+                </tr>
+                <!-- Separator Line Between Tiers -->
+                <tr class="separator">
+                    <td colspan="4" class="tier-separator"></td>
+                </tr>
+
+
+                <!-- C Tier -->
+                <tr class="c-tier">
+                    <td class="overall-column">
+                        <button class="filterDiv10 overall" value="C Tier" style="background-image: url('https://img.game8.co/3866211/fe71b97a41de0e4ffe9b7ea9784afede.png/show');"></button>
+                    </td>
+                    
+                    <td class="dps">
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                        <button class="filterDiv10 dps" value="zzz" style="background-image: url('dps2-image-url');">
+                            <span>zzz</span>
+                        </button>
+                    </td>
+
+                    <td class="support">
+                    </td>
+
+                    <td class="sustain">
+                        <!-- Sustain Characters can be added here -->
+                    </td>
+                </tr>
+
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Character Information Section -->
+        <div id="characterInfo">
+            <h3>Information</h3>
+            <table id="infoTable">
+                <tr>
+                    <td><span>Name:</span> <span id="charName">N/A</span></td>
+                </tr>
+                <tr>
+                    <td><span>Description:</span> <span id="charDesc">N/A</span></td>
+                </tr>
+            </table>
+        </div>
+        
+
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const characterButtons = document.querySelectorAll(".filterDiv10");
+                    const charNameElement = document.getElementById("charName");
+                    const charDescElement = document.getElementById("charDesc");
+
+                    const descriptions = {
+                        "SS Tier": "The best of the best in the game. These characters are must-haves and will greatly make your gameplay experience easier.",
+                        "S Tier": "Characters that are very strong in their respective roles. Most of these characters offer unique mechanics or have strong Traces that make them better than the rest.",
+                        "A Tier": "Good characters who can perform even better when given the right amount of investment. They are considered the base standard of a good character.",
+                        "B Tier": "Characters who are below average in their respective role. These characters require a ton of investment to make them viable in harder content.",
+                        "C Tier": "Characters with limited combat utility. These characters are greatly overshadowed by everyone else in their role.",
+                        "DPS1": "A DPS character with high attack power.",
+                        "DPS2": "A DPS character with high speed and damage output.",
+                        "Support1": "A support character that provides healing and buffs.",
+                        "Support2": "A support character that specializes in debuffing enemies.",
+                        // Add more descriptions as needed
+                    };
+
+                    characterButtons.forEach(button => {
+                        button.addEventListener("click", () => {
+                            const tier = button.value;
+                            charNameElement.textContent = tier; // Set the character name
+                            charDescElement.textContent = descriptions[tier] || "No description available."; // Show the description
+                        });
+                    });
+                });
+            </script>
         </section>
+
+
+        
     </main>
 </body>
 </html>

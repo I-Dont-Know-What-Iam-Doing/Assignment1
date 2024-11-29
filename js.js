@@ -450,3 +450,73 @@ function updateCharacterDisplay(characterName) {
 
 
 
+
+
+
+
+// Tierlist char
+document.addEventListener("DOMContentLoaded", () => {
+    const characterButtons = [
+        { name: "Bailu", tier: "a", description: "Role: Healer, Element: Lightning, Special: Increases healing power by 20%", img: "https://starrail.honeyhunterworld.com/img/character/bailu-character_wait_icon.webp?x49467" },
+        { name: "Gallagher", tier: "b", description: "Role: Attacker, Element: Fire, Special: Increases crit damage by 30%", img: "https://starrail.honeyhunterworld.com/img/character/gallagher-character_wait_icon.webp?x49467" },
+        { name: "Huohuo", tier: "c", description: "Role: Buffer, Element: Wind, Special: Increases attack power by 15%", img: "https://starrail.honeyhunterworld.com/img/character/huohuo-character_wait_icon.webp?x49467" },
+        { name: "Luocha", tier: "d", description: "Role: Support, Element: Quantum, Special: Increases defense by 25%", img: "https://starrail.honeyhunterworld.com/img/character/luocha-character_wait_icon.webp?x49467" }
+    ];
+
+    // Function to populate the tierlist table with character buttons
+    const tierA = document.getElementById("tier-a");
+    const tierB = document.getElementById("tier-b");
+    const tierC = document.getElementById("tier-c");
+    const tierD = document.getElementById("tier-d");
+
+    characterButtons.forEach(character => {
+        const button = document.createElement("button");
+        button.classList.add("character-btn");
+        button.setAttribute("value", character.name);
+        button.setAttribute("data-description", character.description);
+        button.setAttribute("data-img", character.img);
+        button.innerHTML = `<img src="${character.img}" alt="${character.name}">`;
+
+        // Append the button to the correct tier column
+        if (character.tier === "a") tierA.appendChild(button);
+        if (character.tier === "b") tierB.appendChild(button);
+        if (character.tier === "c") tierC.appendChild(button);
+        if (character.tier === "d") tierD.appendChild(button);
+
+        // Add event listener for character button clicks
+        button.addEventListener("click", () => {
+            const selectedCharacterName = button.value;
+            const selectedCharacterDescription = button.getAttribute("data-description");
+            const selectedCharacterImg = button.getAttribute("data-img");
+
+            // Update the character information table
+            document.getElementById("selected-character-info").innerHTML = `
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <h3>${selectedCharacterName}</h3>
+                        <img src="${selectedCharacterImg}" alt="${selectedCharacterName}" width="150" style="border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); margin-bottom: 10px;">
+                        <p>${selectedCharacterDescription}</p>
+                    </td>
+                </tr>
+            `;
+        });
+    });
+
+    // Function to filter characters by tier type
+    function filterTierList(tier) {
+        const tierButtons = document.querySelectorAll(".character-btn");
+        tierButtons.forEach(button => {
+            const buttonTier = button.getAttribute("data-tier");
+
+            if (tier === "all" || buttonTier === tier) {
+                button.style.display = "inline-block";
+            } else {
+                button.style.display = "none";
+            }
+        });
+    }
+
+    // Make filterTierList available globally for the tierlist buttons
+    window.filterTierList = filterTierList;
+});
+// - Tierlist char
