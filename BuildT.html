@@ -241,7 +241,7 @@
                     You selected: none
                 </div>
             
-                <button class="accordion-btn" onclick="toggleAccordion2()">Character Accordion Menu</button>
+                <button class="accordion-btn" onclick="toggleAccordion2()">Relic Accordion Menu</button>
                 <div id="relic-content-info" class="collapsible">
     
     
@@ -410,9 +410,96 @@
                 </div>
             </section>
 
-            <h2>Stats Information</h2>
-            <div id="character-display">
-                <h1>No character selected</h1>
+
+
+            <h2>Relic Information</h2>
+            <div id="stats-relic-container">
+                <!-- Relic 1 -->
+                <div class="stats-relic-box" data-relic="1">
+                    <div class="stats-relic-main">
+                        <span>Relic 1 Main Stat</span>
+                        <select class="relic-main-stat">
+                            <option value="Attack" data-value="54">Attack (+54%)</option>
+                            <option value="HP" data-value="54">HP (+54%)</option>
+                            <option value="Speed" data-value="38">Speed (+38)</option>
+                            <option value="Defense" data-value="54">Defense (+54%)</option>
+                        </select>
+                    </div>
+                    <div class="stats-relic-sub">
+                        <span>Relic 1 Sub Stats</span>
+                        <select class="relic-sub-stat">
+                            <option value="CritRate" data-value="18">Crit Rate (+18%)</option>
+                            <option value="CritDMG" data-value="34">Crit DMG (+34%)</option>
+                            <option value="BreakEffect" data-value="34">Break Effect (+34%)</option>
+                            <option value="EffectRes" data-value="15">Speed (+15)</option>
+                        </select>
+                        <select class="relic-sub-stat">
+                            <option value="CritRate" data-value="18">Crit Rate (+18%)</option>
+                            <option value="CritDMG" data-value="34">Crit DMG (+34%)</option>
+                            <option value="BreakEffect" data-value="34">Break Effect (+34%)</option>
+                            <option value="EffectRes" data-value="15">Speed (+15)</option>
+                        </select>
+                        <select class="relic-sub-stat">
+                            <option value="CritRate" data-value="18">Crit Rate (+18%)</option>
+                            <option value="CritDMG" data-value="34">Crit DMG (+34%)</option>
+                            <option value="BreakEffect" data-value="34">Break Effect (+34%)</option>
+                            <option value="EffectRes" data-value="15">Speed (+15)</option>
+                        </select>
+                        <select class="relic-sub-stat">
+                            <option value="CritRate" data-value="34">Crit Rate (+18%)</option>
+                            <option value="CritDMG" data-value="34">Crit DMG</option>
+                            <option value="BreakEffect" data-value="34" >Break Effect (+34%)</option>
+                            <option value="EffectRes" data-value="15" >Speed (+15)</option>
+                        </select>
+                    </div>
+                </div>
+            
+                <!-- Relic 2 -->
+                <div class="stats-relic-box" data-relic="2">
+                    <div class="stats-relic-main">
+                        <span>Relic 2 Main Stat</span>
+                        <select class="relic-main-stat">
+                            <option value="Attack" data-value="54">Attack (+54%)</option>
+                            <option value="HP" data-value="54">HP (+54%)</option>
+                            <option value="Speed" data-value="15" >Speed (+15)</option>
+                            <option value="Defense" data-value="54">Defense (+54%)</option>
+                        </select>
+                    </div>
+                    <div class="stats-relic-sub">
+                        <span>Relic 2 Sub Stats</span>
+                        <select class="relic-sub-stat">
+                            <option value="CritRate" data-value="18">Crit Rate (+18%)</option>
+                            <option value="CritDMG" data-value="34">Crit DMG (+34%)</option>
+                            <option value="BreakEffect" data-value="34">Break Effect (+34%)</option>
+                            <option value="EffectRes" data-value="34">Attack (+34%)</option>
+                        </select>
+                        <select class="relic-sub-stat">
+                            <option value="CritRate" data-value="18">Crit Rate (+18%)</option>
+                            <option value="CritDMG" data-value="34">Crit DMG (+34%)</option>
+                            <option value="BreakEffect" data-value="34">Break Effect (+34%)</option>
+                            <option value="EffectRes" data-value="34">Attack (+34%)</option>
+                        </select>
+                        <select class="relic-sub-stat">
+                            <option value="CritRate" data-value="18">Crit Rate (+18%)</option>
+                            <option value="CritDMG" data-value="34">Crit DMG (+34%)</option>
+                            <option value="BreakEffect" data-value="34">Break Effect (+34%)</option>
+                            <option value="EffectRes" data-value="34">Attack (+34%)</option>
+                        </select>
+                        <select class="relic-sub-stat">
+                            <option value="CritRate" data-value="18">Crit Rate (+18%)</option>
+                            <option value="CritDMG" data-value="34" >Crit DMG (+34%)</option>
+                            <option value="BreakEffect" data-value="34" >Break Effect (+34%)</option>
+                            <option value="EffectRes" data-value="34" >Attack (+34%)</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Additional relics will be added dynamically -->
+            </div>
+            
+
+            <h2><u>Stats Information</u></h2>
+            <div id="character-stats">
+                <!-- Stats table will be dynamically rendered here -->
             </div>
 
     </main>

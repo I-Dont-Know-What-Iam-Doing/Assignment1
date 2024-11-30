@@ -59,39 +59,195 @@ document.addEventListener("DOMContentLoaded", () => {
     const relicButtons = document.querySelectorAll(".relicDiv");
     const selectedRelicDiv = document.getElementById("selected-relic");
 
-    relicButtons.forEach(button => {
+    relicButtons.forEach((button) => {
         button.addEventListener("click", () => {
-            const relicName = button.value;
-            const relicDescription = button.getAttribute("data-description");
+            const relicName = button.value; // Relic set name
+            const relicDescription = button.getAttribute("data-description"); // Description from HTML
+            const relicSet = button.dataset.set; // Relic set from dataset
+            const pieceCount = button.dataset.piece; // 2 or 4 from dataset
 
-            // Update the selected relic text with line breaks and formatting
+            // Update the selected relic text with description
             selectedRelicDiv.innerHTML = `
                 <div>
                     <strong>You selected: ${relicName}</strong><br>
                     ${relicDescription}
                 </div>
             `;
+
+            // Call function to display bonus details
+            displayRelicBonus(relicSet, pieceCount);
         });
     });
+});
 
-    // Filter function for relics
-    function filterRelicSelection(category) {
-        const items = document.querySelectorAll(".relicDiv");
-        if (category === "all") {
-            items.forEach(item => item.style.display = "inline-block");
+// Function to display the relic bonus description dynamically
+function displayRelicBonus(relicSet, pieceCount) {
+    const relicInfo = relicSets[relicSet];
+    if (relicInfo && relicInfo.bonuses[pieceCount]) {
+        const bonusDescription = relicInfo.bonuses[pieceCount].description;
+
+        // Update the bonus display (add a container for bonus description)
+        const bonusContainer = document.getElementById("relic-bonus-description");
+        if (bonusContainer) {
+            bonusContainer.innerHTML = `
+                <h3>${relicSet} (${pieceCount}-Piece Set Bonus)</h3>
+                <p>${bonusDescription}</p>
+            `;
         } else {
-            items.forEach(item => {
-                if (item.classList.contains(category)) {
-                    item.style.display = "inline-block";
-                } else {
-                    item.style.display = "none";
-                }
-            });
+            console.error("Relic bonus description container not found.");
+        }
+    } else {
+        console.error(`No bonus found for ${relicSet} (${pieceCount}-Piece Set).`);
+    }
+}
+
+// Sample relicSets object
+const relicSets = {
+    "Sacerdos' Relived Ordeal": {
+        bonuses: {
+            2: {
+                description: "Increases SPD by 6%.",
+                stats: { Speed: 6 },
+            },
+            4: {
+                description: "When using Skill or Ultimate on one ally target, increases the ability-using target's CRIT DMG by 18%, lasting for 2 turns. This effect can stack up to 2 times.",
+                stats: { Speed: 6, CritDMG: 18 },
+            },
+        },
+    },
+    // Add more relics here
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//relic stats
+document.addEventListener("DOMContentLoaded", () => {
+    const relicContainer = document.getElementById("stats-relic-container");
+
+    // Function to create a properly formatted relic box
+    function createRelicBox(relicId) {
+        const relicBox = document.createElement("div");
+        relicBox.classList.add("stats-relic-box");
+        relicBox.setAttribute("data-relic", relicId);
+
+        relicBox.innerHTML = `
+            <div class="stats-relic-main">
+                <span>Relic ${relicId} Main Stat</span>
+                <select class="relic-main-stat">
+                    <option value="Attack" data-value="54">Attack (+54%)</option>
+                    <option value="HP" data-value="54">HP (+54%)</option>
+                    <option value="Speed" data-value="15">Speed (+15)</option>
+                    <option value="Defense" data-value="54">Defense (+54%)</option>
+                </select>
+            </div>
+            <div class="stats-relic-sub">
+                <span>Relic ${relicId} Sub Stats</span>
+                <select class="relic-sub-stat">
+                    <option value="CritRate" data-value="18">Crit Rate (+18%)</option>
+                    <option value="CritDMG" data-value="34">Crit DMG (+34%)</option>
+                    <option value="BreakEffect" data-value="34">Break Effect (+34%)</option>
+                    <option value="EffectRes" data-value="34">Attack (+34%)</option>
+                </select>
+                <select class="relic-sub-stat">
+                    <option value="CritRate" data-value="18">Crit Rate (+18%)</option>
+                    <option value="CritDMG" data-value="34">Crit DMG (+34%)</option>
+                    <option value="BreakEffect" data-value="34">Break Effect (+34%)</option>
+                    <option value="EffectRes" data-value="34">Attack (+34%)</option>
+                </select>
+                <select class="relic-sub-stat">
+                    <option value="CritRate" data-value="18">Crit Rate (+18%)</option>
+                    <option value="CritDMG" data-value="34">Crit DMG (+34%)</option>
+                    <option value="BreakEffect" data-value="34">Break Effect (+34%)</option>
+                    <option value="EffectRes" data-value="34">Attack (+34%)</option>
+                </select>
+                <select class="relic-sub-stat">
+                    <option value="CritRate" data-value="18">Crit Rate (+18%)</option>
+                    <option value="CritDMG" data-value="34">Crit DMG (+34%)</option>
+                    <option value="BreakEffect" data-value="34">Break Effect (+34%)</option>
+                    <option value="EffectRes" data-value="34">Attack (+34%)</option>
+                </select>
+            </div>
+        `;
+        return relicBox;
+    }
+
+    // Function to update relic boxes dynamically based on piece count
+    function updateRelicsForSet(pieceCount) {
+        const existingRelic3 = document.querySelector(".stats-relic-box[data-relic='3']");
+        const existingRelic4 = document.querySelector(".stats-relic-box[data-relic='4']");
+
+        if (pieceCount === "4RS") {
+            if (!existingRelic3) relicContainer.appendChild(createRelicBox(3));
+            if (!existingRelic4) relicContainer.appendChild(createRelicBox(4));
+        } else if (pieceCount === "2RS") {
+            if (existingRelic3) existingRelic3.remove();
+            if (existingRelic4) existingRelic4.remove();
         }
     }
 
-    // Attach filterRelicSelection function to the global scope for button clicks
-    window.filterRelicSelection = filterRelicSelection;
+    // Attach event listeners to relic buttons
+    const relicButtons = document.querySelectorAll(".relicDiv");
+    relicButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const pieceCount = button.classList.contains("4RS") ? "4RS" : "2RS";
+            updateRelicsForSet(pieceCount);
+        });
+    });
+
+    // Function to calculate relic stats
+    function getRelicStats() {
+        const relicBoxes = document.querySelectorAll(".stats-relic-box");
+        const stats = {
+            Attack: 0,
+            HP: 0,
+            Speed: 0,
+            Defense: 0,
+            CritRate: 0,
+            CritDMG: 0,
+            BreakEffect: 0,
+            EffectRes: 0,
+        };
+
+        relicBoxes.forEach((box) => {
+            // Main stat
+            const mainStatSelect = box.querySelector(".relic-main-stat");
+            const mainStatValue = parseFloat(mainStatSelect.selectedOptions[0].dataset.value);
+            const mainStatType = mainStatSelect.value;
+            stats[mainStatType] += mainStatValue;
+
+            // Sub stats
+            const subStatSelects = box.querySelectorAll(".relic-sub-stat");
+            subStatSelects.forEach((subStatSelect) => {
+                const subStatValue = parseFloat(subStatSelect.selectedOptions[0].dataset.value);
+                const subStatType = subStatSelect.value;
+                stats[subStatType] += subStatValue;
+            });
+        });
+
+        return stats;
+    }
+
+    // Attach event listener to Calculate button
+    const calculateButton = document.getElementById("calculateBtn");
+    if (calculateButton) {
+        calculateButton.addEventListener("click", () => {
+            const relicStats = getRelicStats();
+            console.log("Relic Stats:", relicStats);
+        });
+    }
 });
 
 
@@ -129,291 +285,105 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// Stats info
+
+
+
+
+// Stats info: Add event listeners to character selection buttons
 document.addEventListener("DOMContentLoaded", () => {
     const characterButtons = document.querySelectorAll(".filterDiv");
 
-    characterButtons.forEach(button => {
+    characterButtons.forEach((button) => {
         button.addEventListener("click", () => {
             const selectedCharacter = button.value;
             const displayElement = document.getElementById("selected-character");
             displayElement.textContent = `You selected: ${selectedCharacter}`;
 
-            // Call the function to update the image and description
-            updateCharacterDisplay(selectedCharacter);
+            // Update stats for the selected character
+            updateCharacterStats(selectedCharacter);
         });
     });
 });
 
-// Function to update the display area with the selected character's image and description
-function updateCharacterDisplay(characterName) {
-    const displayArea = document.getElementById("character-display");
-    
-    // Information for each character
-    const characterInfo = {
-        Bailu: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/bailu-character_cut_in_front.webp?x49467",
-            description: "Bailu is a healer from the Vidyadhara race. She specializes in keeping her allies alive."
+// Character stats information
+const characterInfo = {
+    Bailu: {
+        stats: {
+            Attack: 120,
+            HP: 1000,
+            Speed: 110,
+            Defense: 50,
         },
-        Gallagher: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/gallagher-character_cut_in_front.webp?x49467",
-            description: "Gallagher is a powerful warrior who excels in close combat."
+    },
+    Huohuo: {
+        stats: {
+            Attack: 601.52,
+            Defense: 509.36,
+            HP: 1358,
+            Speed: 98,
+            CritRate: 5,
+            CritDamage: 50,
         },
-        Huohuo: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/huohuo-character_cut_in_front.webp?x49467",
-            description: "Huohuo is a fox spirit who wields healing magic and provides critical support to her team."
-        },
-        Lingsha: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/lingsha-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Luocha: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/luocha-character_cut_in_front.webp?x49467",
-            description: "Huohuo is a fox spirit who wields healing magic and provides critical support to her team."
-        },
-        Lynx: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/lynx-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Natasha: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/natasha-character_cut_in_front.webp?x49467",
-            description: "Huohuo is a fox spirit who wields healing magic and provides critical support to her team."
-        },
-        Arlan: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/arlan-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Blade: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/blade-character_cut_in_front.webp?x49467",
-            description: "Huohuo is a fox spirit who wields healing magic and provides critical support to her team."
-        },
-        Clara: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/clara-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        'Dan Heng - Imbibitor Lunae': {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/dan-heng-imbibitor-lunae-character_cut_in_front.webp?x49467",
-            description: "Huohuo is a fox spirit who wields healing magic and provides critical support to her team."
-        },
-        Firefly: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/firefly-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Hook: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/hook-character_cut_in_front.webp?x49467",
-            description: "Huohuo is a fox spirit who wields healing magic and provides critical support to her team."
-        },
-        Jingliu: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/jingliu-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Misha: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/misha-character_cut_in_front.webp?x49467",
-            description: "Huohuo is a fox spirit who wields healing magic and provides critical support to her team."
-        },
-        'Trailblazer - Destruction': {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/trailblazer-character-2_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Xueyi: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/xueyi-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Yunli: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/yunli-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Argenti: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/argenti-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Herta: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/herta-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Himeko: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/himeko-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Jade: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/jade-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        'Jing Yuan': {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/jing-yuan-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Qingque: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/qingque-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Rappa: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/rappa-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Serval: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/serval-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Asta: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/asta-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Bronya: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/bronya-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Hanya: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/hanya-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Robin: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/robin-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        'Ruan Mei': {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/ruan-mei-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Sparkle: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/sparkle-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Sunday: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/sunday-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Tingyun: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/tingyun-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        'Trailblazer - Harmony': {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/trailblazer-character-5_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Yukong: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/yukong-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Boothill: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/boothill-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        'Dan Heng': {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/dan-heng-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        'Dr Ratio': {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/dr-ratio-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Feixiao: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/feixiao-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        'March 7th - The Hunt': {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/march-7th-character-2_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Moze: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/moze-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Seele: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/seele-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Sushang: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/sushang-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Topaz: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/topaz-numby-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Yanqing: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/yanqing-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Acheron: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/acheron-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        'Black Swan': {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/black-swan-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Guinaifen: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/guinaifen-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Jiaoqiu: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/jiaoqiu-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Kafka: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/kafka-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Luka: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/luka-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Pela: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/pela-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Sampo: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/sampo-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        'Silver Wolf': {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/silver-wolf-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Fugue: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/fugue-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Welt: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/welt-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Aventurine: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/aventurine-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        'Fu Xuan': {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/fu-xuan-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        Gepard: {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/gepard-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        'March 7th': {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/march-7th-character_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        },
-        'Trailblazer - Preservation': {
-            imgUrl: "https://starrail.honeyhunterworld.com/img/character/trailblazer-character-4_cut_in_front.webp?x49467",
-            description: "Lingsha is a swift and agile fighter who uses her speed to outmaneuver opponents."
-        }
+    },
+    // Add more characters here
+};
 
+// Function to update the stats display for the selected character
+function updateCharacterStats(characterName) {
+    const statsContainer = document.getElementById("character-stats");
 
-    };
-
-    // Check if the character exists in the characterInfo object
     if (characterInfo[characterName]) {
         const character = characterInfo[characterName];
-        displayArea.innerHTML = `
-            <img src="${character.imgUrl}" alt="${characterName}">
-            <div id="character-details">
-                <h3>${characterName}</h3>
-                <p>${character.description}</p>
-            </div>
+
+        // Create a stats table for the selected character
+        let statsTable = `
+            <h3>${characterName}'s Stats</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stat</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
         `;
+
+        // Populate the stats table dynamically
+        for (const [stat, value] of Object.entries(character.stats)) {
+            statsTable += `
+                <tr>
+                    <td>${stat}</td>
+                    <td>${value}</td>
+                </tr>
+            `;
+        }
+
+        statsTable += `
+                </tbody>
+            </table>
+            <button id="calculateBtn">Calculate</button>
+        `;
+
+        statsContainer.innerHTML = statsTable;
+
+        // Attach an event listener to the Calculate button
+        document.getElementById("calculateBtn").addEventListener("click", () => {
+            calculateStats(characterName, character.stats);
+        });
     } else {
-        displayArea.innerHTML = `<p>No character selected</p>`;
+        // If no character is selected, clear the stats display
+        statsContainer.innerHTML = `<p>No character stats available.</p>`;
     }
+}
+
+// Function for calculations
+function calculateStats(characterName, stats) {
+    console.log(`Calculating stats for ${characterName}:`, stats);
+
+    // Example calculation: Sum of all stats
+    const totalStats = Object.values(stats).reduce((sum, stat) => sum + stat, 0);
+    console.log(`Total Stats for ${characterName}: ${totalStats}`);
+
+    // Display the result (placeholder for now)
+    alert(`Total Stats for ${characterName}: ${totalStats}`);
 }

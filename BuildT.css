@@ -133,69 +133,91 @@
 
 
 
-
-/* Stats info
-}
-
-/* Character Buttons */
-.character-card {
-  display: inline-block;
-  width: 150px;
-  height: 150px;
-  margin: 10px;
-  background-size: cover;
-  background-position: center;
-  border: 2px solid transparent;
-  border-radius: 8px;
-  cursor: pointer;
-  text-align: center;
-  line-height: 100px;
-  color: white;
-  text-shadow: 1px 1px 2px black;
-  transition: transform 0.2s, border-color 0.2s;
-}
-
-.character-card:hover {
-  transform: scale(1.1);
-  border-color: #007bff;
-}
-
-/* Display Area */
+/* Character Display Area */
 #character-display {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   margin-top: 20px;
   padding: 20px;
   border: 2px dashed #ccc;
   border-radius: 10px;
   background-color: #fff;
+  max-width: 800px; /* Restrict the container width */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #character-display img {
-  max-width: 696px;
-  height: auto;
+  max-width: 100%; /* Ensure the image scales within the container */
+  height: auto; /* Maintain aspect ratio */
   border-radius: 10px;
-  margin-right: 20px;
 }
 
-#character-display p {
+#character-details {
+  text-align: center;
+  margin-top: 20px;
+  max-width: 600px;
+}
+
+#character-details h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#character-details p {
   font-size: 16px;
   color: #555;
 }
 
-#character-details {
-  max-width: 500px;
+/* Stats Table */
+#character-stats {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  max-width: 800px; /* Restrict table container width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#character-stats table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+#character-stats table th,
+#character-stats table td {
+  border: 1px solid black;
+  padding: 10px;
   text-align: left;
 }
 
-#character-details h3 {
-  font-size: 20px;
-  margin: 0 0 10px;
-  color: #333;
+#character-stats table th {
+  background-color: #ddd;
 }
-/* - Stats info
+
+#calculateBtn {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#calculateBtn:hover {
+  background-color: #333;
+}
+
+
+
 
 
 
@@ -307,6 +329,65 @@
 
 
 
+
+
+
+
+
+
+
+
+
+/* Stats Container Styling */
+/* Stats Container Styling */
+#stats-relic-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20px auto;
+  padding: 10px;
+  max-width: 800px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: white;
+}
+
+/* Individual Stats Relic Boxes */
+.stats-relic-box {
+  width: 23%; /* 4 boxes fit in a row with space */
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Main Stats Relic Box (Top Section) */
+.stats-relic-main {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Options Box (Bottom Section) */
+.stats-relic-options {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Space between dropdowns */
+}
+
+.stats-relic-options select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #f9f9f9;
+}
 
 
 
