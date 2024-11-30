@@ -134,6 +134,7 @@ const relicSets = {
 
 
 //relic stats
+// Relic stats handling
 document.addEventListener("DOMContentLoaded", () => {
     const relicContainer = document.getElementById("stats-relic-container");
 
@@ -218,7 +219,6 @@ document.addEventListener("DOMContentLoaded", () => {
             CritRate: 0,
             CritDMG: 0,
             BreakEffect: 0,
-            EffectRes: 0,
         };
 
         relicBoxes.forEach((box) => {
@@ -241,13 +241,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Attach event listener to Calculate button
-    const calculateButton = document.getElementById("calculateBtn");
-    if (calculateButton) {
-        calculateButton.addEventListener("click", () => {
+    document.addEventListener("click", (e) => {
+        if (e.target.id === "calculateBtn") {
             const relicStats = getRelicStats();
             console.log("Relic Stats:", relicStats);
-        });
-    }
+
+            // Display calculated Crit DMG for confirmation
+            const critDamageDisplay = document.getElementById("stat-CritDamage");
+            if (critDamageDisplay) {
+                critDamageDisplay.textContent = relicStats.CritDMG.toFixed(2);
+            }
+        }
+    });
 });
 
 
@@ -289,10 +294,156 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// Stats info: Add event listeners to character selection buttons
 document.addEventListener("DOMContentLoaded", () => {
-    const characterButtons = document.querySelectorAll(".filterDiv");
+    const characterInfo = {
+        Huohuo: {
+            stats: {
+                Attack: 601.52,
+                HP: 1358,
+                Defense: 509.36,
+                Speed: 98,
+                CritRate: 5,
+                CritDMG: 50,
+            },
+            multipliers: {
+                basic: 1.5,
+                skill: 2.0,
+                ultimate: 3.5,
+            },
+        },
+        Bailu: {
+            stats: {
+                Attack: 120,
+                HP: 1000,
+                Defense: 50,
+                Speed: 110,
+                CritRate: 5,
+                CritDMG: 50,
+            },
+            multipliers: {
+                basic: 1.2,
+                skill: 1.8,
+                ultimate: 3.0,
+            },
+        },
+        // Add more characters as needed
+    };
 
+    function updateCharacterStats(characterName) {
+        const statsContainer = document.getElementById("character-stats");
+        const character = characterInfo[characterName];
+
+        if (character) {
+            let statsTable = `
+                <h3>${characterName}'s Stats</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Stat</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            for (const [stat, value] of Object.entries(character.stats)) {
+                statsTable += `
+                    <tr>
+                        <td>${stat}</td>
+                        <td id="stat-${stat}">${value}</td>
+                    </tr>
+                `;
+            }
+
+            statsTable += `
+                    </tbody>
+                </table>
+                <button id="calculateBtn">Calculate</button>
+            `;
+
+            statsContainer.innerHTML = statsTable;
+
+            // Attach event listener to Calculate button
+            document.getElementById("calculateBtn").addEventListener("click", () => {
+                calculateDamage(characterName);
+            });
+        } else {
+            statsContainer.innerHTML = `<p>No character stats available.</p>`;
+        }
+    }
+
+    function calculateSelectedRelicStats() {
+        const relicBoxes = document.querySelectorAll(".stats-relic-box");
+        const stats = {
+            Attack: 0,
+            HP: 0,
+            Speed: 0,
+            Defense: 0,
+            CritRate: 0,
+            CritDMG: 0,
+            BreakEffect: 0,
+        };
+
+        relicBoxes.forEach((box) => {
+            // Main stat
+            const mainStatSelect = box.querySelector(".relic-main-stat");
+            const mainStatValue = parseFloat(mainStatSelect.selectedOptions[0].dataset.value);
+            const mainStatType = mainStatSelect.value;
+            stats[mainStatType] += mainStatValue;
+
+            // Sub stats
+            const subStatSelects = box.querySelectorAll(".relic-sub-stat");
+            subStatSelects.forEach((subStatSelect) => {
+                const subStatValue = parseFloat(subStatSelect.selectedOptions[0].dataset.value);
+                const subStatType = subStatSelect.value;
+                stats[subStatType] += subStatValue;
+            });
+        });
+
+        return stats;
+    }
+
+    function calculateDamage(characterName) {
+        const character = characterInfo[characterName];
+        if (!character) return;
+
+        const baseStats = { ...character.stats };
+        const relicStats = calculateSelectedRelicStats();
+
+        // Aggregate stats
+        const totalStats = { ...baseStats };
+        for (const [key, value] of Object.entries(relicStats)) {
+            if (totalStats[key] !== undefined) {
+                totalStats[key] += value;
+            }
+        }
+
+        // Calculate total attack with Crit DMG multiplier applied
+        const totalAttack = totalStats.Attack * (1 + totalStats.CritDMG / 100);
+
+        // Calculate damage for each move
+        const basicDamage = totalAttack * character.multipliers.basic;
+        const skillDamage = totalAttack * character.multipliers.skill;
+        const ultimateDamage = totalAttack * character.multipliers.ultimate;
+
+        // Update damage display
+        document.getElementById("basic-damage").textContent = `Damage: ${basicDamage.toFixed(2)}`;
+        document.getElementById("skill-damage").textContent = `Damage: ${skillDamage.toFixed(2)}`;
+        document.getElementById("ultimate-damage").textContent = `Damage: ${ultimateDamage.toFixed(2)}`;
+
+        // Show the results container
+        const resultContainer = document.getElementById("calculation-result-container");
+        resultContainer.style.display = "block";
+
+        // Update the displayed stats in real-time
+        for (const [key, value] of Object.entries(totalStats)) {
+            const statElement = document.getElementById(`stat-${key}`);
+            if (statElement) statElement.textContent = value.toFixed(2);
+        }
+    }
+
+    // Attach event listeners to character selection buttons
+    const characterButtons = document.querySelectorAll(".filterDiv");
     characterButtons.forEach((button) => {
         button.addEventListener("click", () => {
             const selectedCharacter = button.value;
@@ -304,86 +455,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-
-// Character stats information
-const characterInfo = {
-    Bailu: {
-        stats: {
-            Attack: 120,
-            HP: 1000,
-            Speed: 110,
-            Defense: 50,
-        },
-    },
-    Huohuo: {
-        stats: {
-            Attack: 601.52,
-            Defense: 509.36,
-            HP: 1358,
-            Speed: 98,
-            CritRate: 5,
-            CritDamage: 50,
-        },
-    },
-    // Add more characters here
-};
-
-// Function to update the stats display for the selected character
-function updateCharacterStats(characterName) {
-    const statsContainer = document.getElementById("character-stats");
-
-    if (characterInfo[characterName]) {
-        const character = characterInfo[characterName];
-
-        // Create a stats table for the selected character
-        let statsTable = `
-            <h3>${characterName}'s Stats</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Stat</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-        `;
-
-        // Populate the stats table dynamically
-        for (const [stat, value] of Object.entries(character.stats)) {
-            statsTable += `
-                <tr>
-                    <td>${stat}</td>
-                    <td>${value}</td>
-                </tr>
-            `;
-        }
-
-        statsTable += `
-                </tbody>
-            </table>
-            <button id="calculateBtn">Calculate</button>
-        `;
-
-        statsContainer.innerHTML = statsTable;
-
-        // Attach an event listener to the Calculate button
-        document.getElementById("calculateBtn").addEventListener("click", () => {
-            calculateStats(characterName, character.stats);
-        });
-    } else {
-        // If no character is selected, clear the stats display
-        statsContainer.innerHTML = `<p>No character stats available.</p>`;
-    }
-}
-
-// Function for calculations
-function calculateStats(characterName, stats) {
-    console.log(`Calculating stats for ${characterName}:`, stats);
-
-    // Example calculation: Sum of all stats
-    const totalStats = Object.values(stats).reduce((sum, stat) => sum + stat, 0);
-    console.log(`Total Stats for ${characterName}: ${totalStats}`);
-
-    // Display the result (placeholder for now)
-    alert(`Total Stats for ${characterName}: ${totalStats}`);
-}
