@@ -1,156 +1,42 @@
 
-
-/* styles.css */
-
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #E9F1FA; 
-}
-
-header {
-    background-color: #00ABE4;
-    color: #fff;
-    padding: 15px 50px; 
-    box-shadow: 0 2px 4px rgb(0, 0, 0); 
-    justify-content: space-between;
-}
-
-.footer {
-  background-color: #00ABE4;
-  color: #E9F1FA;
+/* Accordion */
+.accordion-btn {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  cursor: pointer;
   font-size: 16px;
-  text-align: center;
-  width: 100%;
-  position: absolute;
-  padding: 45px 0px;
-  margin-top: 25px;
 }
 
-#button {
-    background-color: #ffffffa1; 
-
-    color: black;
-    padding: 15px 0;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    width: 200px;
-    margin: 10px auto;
-  }
-
-#hamburger {
-    cursor: pointer; 
-    width: 40px; 
-    text-align: left;
-    position: absolute;
+.accordion-btn:hover {
+  background-color: #444;
 }
 
-select {
-    margin-top: 10px;
-    padding: 8px; 
-    border: 1px solid #ccc;
-    border-radius: 4px; 
+/* Wrapper for the accordion containers */
+.accordion-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between the accordions */
 }
 
-main {
-    padding: 20px;
-    max-width: 1200px; 
-    margin: auto; 
+/* Collapsible content (with transition for smooth height change) */
+.collapsible {
+  overflow: hidden;
+  height: 0px; /* Start collapsed */
+  transition: height 0.3s ease; /* Smooth height transition */
 }
 
-#content-header {
-    margin-bottom: 300px;
-    text-align: center;
+.collapsible.expanded {
+  overflow: visible; /* Allow content to be shown when expanded */
+  height: auto; /* Let content expand naturally */
 }
-
-#content-info  {
-    margin: 0 0 10px 0; 
-    border: 1px solid #ccc;
-    padding: 15px;
-    background-color: #fff; 
-    border-radius: 4px; 
-    border: 1px solid #717171;
-}
-
-#content-table {
-  margin: 20px 0;
-  width: 100%;
-  border: 1px solid #717171;
-  background-color: #fff;
-}
-
-#list {
-  position: relative;
-  top: 2px;
-  display: inline-block;
-  margin: 0 10px 0 10px;
-  fill: #fff;
-  width: 14px;
-  height: 14px;
-  
-}
+/* - Accordion */
 
 
 
-/* Side nav */
-
-/* The side navigation menu */
-.sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    background-color: #e2e4e5; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-  }
-  
-  /* The navigation menu links */
-  .sidenav a {
-    padding: 8px 8px 8px 32px;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  /* When you mouse over the navigation links, change their color */
-  .sidenav a:hover {
-    color: #f1f1f1;
-    
-  }
-  
-  /* Position and style the close button (top right corner) */
-  .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
-  
-  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-  #main {
-    transition: margin-left .5s;
-    padding: 30px;
-  }
-  
-  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-
-  }
-
-/* - Side nav */
 
 
 
@@ -321,10 +207,35 @@ main {
 
 
 /* Relic container */
-.relic-container {
-  overflow: hidden;
+
+/* Relic container with white background and border */
+.relic-content-info {
+  margin: 0 0 10px 0; 
+  border: 1px solid #ccc;
+  padding: 15px;
+  background-color: #fff; 
+  border-radius: 4px; 
+  border: 1px solid #717171;
 }
 
+.relicBtnontainer {
+  overflow: hidden;
+  border: 1px solid #ccc; /* Border inside the main container */
+  border-radius: 4px; /* Optional rounded corners */
+  padding: 10px; /* Padding for spacing */
+  background-color: #f9f9f9; /* Light grey background for contrast */
+}
+
+/* Inner container styling */
+.relic-container {
+  overflow: hidden;
+  border: 1px solid #ccc; /* Border inside the main container */
+  border-radius: 4px; /* Optional rounded corners */
+  padding: 10px; /* Padding for spacing */
+  background-color: #f9f9f9; /* Light grey background for contrast */
+}
+
+/* Individual relic boxes */
 .relicDiv {
   float: left;
   position: relative; /* Enable positioning for overlay text */
@@ -338,8 +249,8 @@ main {
   line-height: 100px; /* Center single-line text vertically */
   text-align: center; /* Center text horizontally */
   margin: 2px;
-  display: none; /* Hidden by default (none) */
-  box-shadow: 0 2px 4px rgb(0, 0, 0); /* Add shadow for depth */
+  display: none; /* Hidden by default */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
   border-radius: 4px; /* Optional: rounded corners */
   overflow: hidden; /* Prevent content overflow */
   cursor: pointer;
@@ -353,7 +264,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.55); /* Black overlay with 40% opacity */
+  background-color: rgba(0, 0, 0, 0.55); /* Black overlay with 55% opacity */
   z-index: 1; /* Ensure the overlay is below the text */
 }
 
@@ -391,6 +302,7 @@ main {
   background-color: #666;
   color: white;
 }
+
 /* - Relic selection
 
 
@@ -398,247 +310,6 @@ main {
 
 
 
-
-
-
-
-
-
-
-/* Tier list */
-/* Character container */
-.container {
-  overflow: hidden;
-}
-
-.filterDiv10 {
-  position: relative;
-  width: 80px;
-  height: 80px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 4px;
-  cursor: pointer;
-  color: white;
-  text-align: center;
-  font-weight: bold;
-  margin: 5px;
-  display: inline-block;
-  padding-bottom: 5px; /* Space between the button and the line */
-  transition: all 0.3s ease; /* Smooth transition for hover and active states */
-}
-
-.filterDiv10 span {
-  position: relative;
-  z-index: 2;
-  font-size: 12px;
-  display: block;
-}
-
-.filterDiv10::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.55);  /* Semi-transparent dark background */
-  z-index: 1;
-  border-radius: 4px;
-}
-
-/* Specific button color coding */
-.overall button {
-  background-color: #6c757d;
-}
-
-.dps button {
-  background-color: #dc3545;
-}
-
-.support button {
-  background-color: #28a745;
-}
-
-.sustain button {
-  background-color: #007bff;
-}
-
-#tierListTable {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-#tierListTable th, #tierListTable td {
-  padding: 10px;
-  text-align: center;
-  border: 1px solid #ddd;
-}
-
-#tierListTable th {
-  background-color: #f4f4f4;
-}
-
-#tierListTable td {
-  vertical-align: top;
-}
-
-/* Make the 'Overall' column thinner */
-.overall-column {
-  width: 80px; /* Thinner column width */
-}
-
-.tier-separator {
-  height: 1px;
-  background-color: rgba(0, 0, 0, 0.021); /* Red separator line */
-  width: 100%;
-  line-height: 0;
-  padding: 0;
-}
-
-.ss-tier td {
-  background-color: #f8dcd7;
-}
-
-.s-tier td {
-  background-color: #f8f2d7;
-}
-
-.a-tier td {
-  background-color: #d4edda;
-}
-
-.b-tier td {
-  background-color: #d4e5ed;
-}
-
-.c-tier td {
-  background-color: #d7d4ed;
-}
-
-#infoTable td {
-  padding: 5px 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-#infoTable td span {
-  font-weight: bold;
-}
-
-/* Button hover and click effects */
-.filterDiv10:hover {
-  opacity: 0.9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-.filterDiv10:active {
-  transform: scale(0.98); /* Slightly shrink the button for the click effect */
-}
-
-#characterInfo {
-  margin-top: 20px;
-  font-size: 16px;
-  background-color: #f9f9f9;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-}
-
-#characterInfo table {
-  width: 100%; /* Ensure the table takes up the full width */
-}
-
-#infoTable {
-  width: 100%;
-}
-
-#infoTable i {
-  font-size: 13px;
-}
-
-#characterGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Create 4 equal-width columns */
-  gap: 10px; /* Spacing between the boxes */
-  justify-items: center; /* Ensure the grid items are centered in each column */
-  margin-top: 10px;
-  width: 100%; /* Make sure the grid takes up the full width of the table */
-}
-
-/* Make image boxes in the info section the same size as the ones in the tier list */
-#characterGrid .image-box {
-  width: 80px;   /* Match tier list box width */
-  height: 80px;  /* Match tier list box height */
-  background-size: cover;
-  background-position: center;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  position: relative;
-  margin: 5px;  /* Add some space between the boxes */
-}
-
-#characterGrid .image-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensure the image doesn't stretch */
-}
-
-#characterGrid td {
-  display: flex; /* Flexbox for distributing items within the table cells */
-  justify-content: center; /* Center the image boxes inside each table cell */
-  padding: 0; /* Remove padding from cells */
-}
-
-/* Image box container */
-.image-box {
-  position: relative;
-  width: 100%; /* Ensure the image box stretches to fill the column */
-  height: 100px; /* Set the height of each image box */
-  background-size: cover;
-  background-position: center;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-/* Overlay effect for opacity on the image */
-.image-box .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay to dim the image */
-  z-index: 1;
-  border-radius: 8px;
-}
-
-/* Centered text on top of the image */
-.image-box .image-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 14px;
-  font-weight: bold;
-  z-index: 2; /* Ensure text is above the overlay */
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7); /* Optional shadow for better text visibility */
-}
-
-.image-box:hover {
-  transform: scale(1.05); /* Slight zoom on hover */
-}
-
-#VerySpecificCentreAlignment {
-  text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-weight: bold;
-}
 
 
 
