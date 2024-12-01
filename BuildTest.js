@@ -36,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
 // Relic
 function toggleAccordion2() {
     const relicContent = document.getElementById("relic-content-info");
@@ -150,35 +149,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 <select class="relic-main-stat">
                     <option value="Attack" data-value="54">Attack (+54%)</option>
                     <option value="HP" data-value="54">HP (+54%)</option>
-                    <option value="Speed" data-value="15">Speed (+15)</option>
                     <option value="Defense" data-value="54">Defense (+54%)</option>
                 </select>
             </div>
             <div class="stats-relic-sub">
                 <span>Relic ${relicId} Sub Stats</span>
                 <select class="relic-sub-stat">
-                    <option value="CritRate" data-value="18">Crit Rate (+18%)</option>
-                    <option value="CritDMG" data-value="34">Crit DMG (+34%)</option>
+                    <option value="Attack" data-value="34">Attack (+34%)</option>
+                    <option value="HP" data-value="34">HP (+34%)</option>
+                    <option value="Defense" data-value="34">Defense (+34%)</option>
+                    <option value="Speed" data-value="15">Speed (+15)</option>
+                </select>
+                <select class="relic-sub-stat">
+                    <option value="HP" data-value="34">HP (+34%)</option>
+                    <option value="Defense" data-value="34">Defense (+34%)</option>
                     <option value="BreakEffect" data-value="34">Break Effect (+34%)</option>
-                    <option value="EffectRes" data-value="34">Attack (+34%)</option>
+                    <option value="EffectRes" data-value="31">EffectRes (+31%)</option>
                 </select>
                 <select class="relic-sub-stat">
                     <option value="CritRate" data-value="18">Crit Rate (+18%)</option>
                     <option value="CritDMG" data-value="34">Crit DMG (+34%)</option>
-                    <option value="BreakEffect" data-value="34">Break Effect (+34%)</option>
-                    <option value="EffectRes" data-value="34">Attack (+34%)</option>
+                    <option value="Attack" data-value="34">Attack (+34%)</option>
+                    <option value="Speed" data-value="15">Speed (+15)</option>
                 </select>
                 <select class="relic-sub-stat">
                     <option value="CritRate" data-value="18">Crit Rate (+18%)</option>
                     <option value="CritDMG" data-value="34">Crit DMG (+34%)</option>
-                    <option value="BreakEffect" data-value="34">Break Effect (+34%)</option>
-                    <option value="EffectRes" data-value="34">Attack (+34%)</option>
-                </select>
-                <select class="relic-sub-stat">
-                    <option value="CritRate" data-value="18">Crit Rate (+18%)</option>
-                    <option value="CritDMG" data-value="34">Crit DMG (+34%)</option>
-                    <option value="BreakEffect" data-value="34">Break Effect (+34%)</option>
-                    <option value="EffectRes" data-value="34">Attack (+34%)</option>
+                    <option value="BreakEffect" data-value="34" >Break Effect (+34%)</option>
+                    <option value="Attack" data-value="34" >Attack (+34%)</option>
                 </select>
             </div>
         `;
@@ -312,29 +310,1036 @@ document.addEventListener("DOMContentLoaded", () => {
                 Speed: 98,
                 CritRate: 5,
                 CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 18,
             },
             multipliers: {
                 basic: 1.5,
-                skill: 2.0,
-                ultimate: 3.5,
+                skill: 0,
+                ultimate: 0,
             },
         },
         Bailu: {
             stats: {
-                Attack: 120,
-                HP: 1000,
-                Defense: 50,
+                Attack: 562.72,
+                HP: 1319,
+                Defense: 485.1,
+                Speed: 100,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 10,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 0,
+                ultimate: 0,
+            },
+        },
+        Gallagher: {
+            stats: {
+                Attack: 529,
+                HP: 1539.9,
+                Defense: 441,
+                Speed: 98,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 13.3,
+                EffectRes: 28,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 0,
+                ultimate: 3.25,
+            },
+        },
+        Lingsha: {
+            stats: {
+                Attack: 679.14,
+                HP: 1358,
+                Defense: 436.59,
+                Speed: 98,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 21.3,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 1,
+                ultimate: 1.8,
+            },
+        },
+        Luocha: {
+            stats: {
+                Attack: 756.76,
+                HP: 1281,
+                Defense: 363.83,
+                Speed: 101,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 0,
+                ultimate: 2.4,
+            },
+        },
+        Lynx: {
+            stats: {
+                Attack: 493.92,
+                HP: 1058.4,
+                Defense: 551.25,
+                Speed: 100,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 10,
+            },
+            multipliers: {
+                basic: 0.65,
+                skill: 0,
+                ultimate: 0,
+            },
+        },
+        Natasha: {
+            stats: {
+                Attack: 476.28,
+                HP: 1164.24,
+                Defense: 507.15,
+                Speed: 98,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 18,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 0,
+                ultimate: 0,
+            },
+        },
+        Arlan: {
+            stats: {
+                Attack: 599.76,
+                HP: 1199.52,
+                Defense: 599.76,
+                Speed: 102,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 18,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 3,
+                ultimate: 3.84,
+            },
+        },
+        Blade: {
+            stats: {
+                Attack: 543.31,
+                HP: 1358.28,
+                Defense: 485.1,
+                Speed: 97,
+                CritRate: 17,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 10,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 0,
+                ultimate: 3.36,
+            },
+        },
+        Clara: {
+            stats: {
+                Attack: 737.35,
+                HP: 1241.86,
+                Defense: 485.1,
+                Speed: 90,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 3.0,
+                ultimate: 4.92,
+            },
+        },
+        'Dan Heng - Imbibitor Lunae': {
+            stats: {
+                Attack: 698.54,
+                HP: 1241.86,
+                Defense: 363.83,
+                Speed: 102,
+                CritRate: 16,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 8.84,
+                skill: 0,
+                ultimate: 3.6,
+            },
+        },
+        Firefly: {
+            stats: {
+                Attack: 523.91,
+                HP: 814.97,
+                Defense: 776.16,
+                Speed: 109,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 37.4,
+                EffectRes: 18,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 3.55,
+                ultimate: 0,
+            },
+        },
+        Jingliu: {
+            stats: {
+                Attack: 679.14,
+                HP: 1435.9,
+                Defense: 485.1,
+                Speed: 105,
+                CritRate: 5,
+                CritDMG: 87.3,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 3.125,
+                ultimate: 3.6,
+            },
+        },
+        Misha: {
+            stats: {
+                Attack: 599.76,
+                HP: 1270.08,
+                Defense: 396.9,
+                Speed: 96,
+                CritRate: 11.7,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 2.5,
+                ultimate: 1.8,
+            },
+        },
+        'Trailblazer - Destruction': {
+            stats: {
+                Attack: 620.93,
+                HP: 1203.05,
+                Defense: 460.85,
+                Speed: 100,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 1.5625,
+                ultimate: 3.15,
+            },
+        },
+        Xueyi: {
+            stats: {
+                Attack: 599.76,
+                HP: 1058.4,
+                Defense: 396.9,
+                Speed: 103,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 37.4,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 1.75,
+                ultimate: 3.72,
+            },
+        },
+        Yunli: {
+            stats: {
+                Attack: 679.14,
+                HP: 1358.28,
+                Defense: 460.85,
+                Speed: 94,
+                CritRate: 11.7,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 1.5,
+                ultimate: 3.84,
+            },
+        },
+        Argenti: {
+            stats: {
+                Attack: 737.35,
+                HP: 1047.82,
+                Defense: 363.83,
+                Speed: 103,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 1.5,
+                ultimate: 3.36,
+            },
+        },
+        Herta: {
+            stats: {
+                Attack: 582.12,
+                HP: 952.56,
+                Defense: 396.9,
+                Speed: 100,
+                CritRate: 9.7,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 1.45,
+                ultimate: 2.4,
+            },
+        },
+        Himeko: {
+            stats: {
+                Attack: 756.76,
+                HP: 1047.82,
+                Defense: 436.59,
+                Speed: 96,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 10,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 2.5,
+                ultimate: 2.76,
+            },
+        },
+        Jade: {
+            stats: {
+                Attack: 659.74,
+                HP: 1086.62,
+                Defense: 509.36,
+                Speed: 103,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 10,
+            },
+            multipliers: {
+                basic: 1.17,
+                skill: 0,
+                ultimate: 4,
+            },
+        },
+        'Jing Yuan': {
+            stats: {
+                Attack: 698.54,
+                HP: 1164.24,
+                Defense: 485.1,
+                Speed: 99,
+                CritRate: 17,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 1.25,
+                ultimate: 2.4,
+            },
+        },
+        Qingque: {
+            stats: {
+                Attack: 652.68,
+                HP: 1023.12,
+                Defense: 441,
+                Speed: 98,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 3.12,
+                skill: 0,
+                ultimate: 2.4,
+            },
+        },
+        Rappa: {
+            stats: {
+                Attack: 717.95,
+                HP: 1086.62,
+                Defense: 460.85,
+                Speed: 105,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 13.3,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 1.5,
+                ultimate: 0,
+            },
+        },
+        Serval: {
+            stats: {
+                Attack: 652.68,
+                HP: 374.85,
+                Defense: 917.28,
+                Speed: 104,
+                CritRate: 23.7,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 10,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 1.75,
+                ultimate: 2.16,
+            },
+        },
+        Asta: {
+            stats: {
+                Attack: 511.56,
+                HP: 1023.12,
+                Defense: 463.05,
+                Speed: 106,
+                CritRate: 11.7,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 2.5,
+                ultimate: 0,
+            },
+        },
+        Bronya: {
+            stats: {
+                Attack: 582.12,
+                HP: 1241.86,
+                Defense: 533.61,
+                Speed: 99,
+                CritRate: 5,
+                CritDMG: 74,
+                BreakEffect: 0,
+                EffectRes: 10,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 0,
+                ultimate: 0,
+            },
+        },
+        Hanya: {
+            stats: {
+                Attack: 564.48,
+                HP: 917.28,
+                Defense: 352.8,
+                Speed: 119,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 3,
+                ultimate: 0,
+            },
+        },
+        Robin: {
+            stats: {
+                Attack: 640.33,
+                HP: 1280.66,
+                Defense: 485.1,
+                Speed: 107,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 0,
+                ultimate: 0,
+            },
+        },
+        'Ruan Mei': {
+            stats: {
+                Attack: 659.74,
+                HP: 1086.62,
+                Defense: 485.1,
+                Speed: 109,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 37.3,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 0,
+                ultimate: 0,
+            },
+        },
+        Sparkle: {
+            stats: {
+                Attack: 523.91,
+                HP: 1397.09,
+                Defense: 485.1,
+                Speed: 101,
+                CritRate: 5,
+                CritDMG: 74,
+                BreakEffect: 0,
+                EffectRes: 10,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 0,
+                ultimate: 0,
+            },
+        },
+        Sunday: {
+            stats: {
+                Attack: 0,
+                HP: 0,
+                Defense: 0,
+                Speed: 0,
+                CritRate: 0,
+                CritDMG: 0,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 0,
+                skill: 0,
+                ultimate: 0,
+            },
+        },
+        Tingyun: {
+            stats: {
+                Attack: 529.2,
+                HP: 846.72,
+                Defense: 396.9,
                 Speed: 110,
                 CritRate: 5,
                 CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
             },
             multipliers: {
-                basic: 1.2,
-                skill: 1.8,
-                ultimate: 2.8,
+                basic: 1.3,
+                skill: 0,
+                ultimate: 0,
             },
         },
-        // Add more characters here if needed
+        'Trailblazer - Harmony': {
+            stats: {
+                Attack: 446.29,
+                HP: 1086.62,
+                Defense: 679.14,
+                Speed: 105,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 37.3,
+                EffectRes: 10,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 2.5,
+                ultimate: 0,
+            },
+        },
+        Yukong: {
+            stats: {
+                Attack: 599.76,
+                HP: 917.28,
+                Defense: 374.85,
+                Speed: 107,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 0,
+                ultimate: 4.56,
+            },
+        },
+        Boothill: {
+            stats: {
+                Attack: 620.93,
+                HP: 1203.05,
+                Defense: 436.59,
+                Speed: 107,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 37.3,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 0,
+                ultimate: 4.8,
+            },
+        },
+        'Dan Heng': {
+            stats: {
+                Attack: 546.84,
+                HP: 882,
+                Defense: 396.9,
+                Speed: 110,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 3.25,
+                ultimate: 4.8,
+            },
+        },
+        'Dr Ratio': {
+            stats: {
+                Attack: 776.16,
+                HP: 1047.82,
+                Defense: 460.85,
+                Speed: 103,
+                CritRate: 17,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 5.25,
+                ultimate: 2.88,
+            },
+        },
+        Feixiao: {
+            stats: {
+                Attack: 601.52,
+                HP: 1047.82,
+                Defense: 388.08,
+                Speed: 112,
+                CritRate: 17,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 3.875,
+                ultimate: 10.41,
+            },
+        },
+        'March 7th - The Hunt': {
+            stats: {
+                Attack: 564.48,
+                HP: 1058.4,
+                Defense: 441,
+                Speed: 102,
+                CritRate: 5,
+                CritDMG: 74,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 2.3,
+                skill: 0,
+                ultimate: 2.88,
+            },
+        },
+        Moze: {
+            stats: {
+                Attack: 599.76,
+                HP: 811.44,
+                Defense: 352.8,
+                Speed: 111,
+                CritRate: 5,
+                CritDMG: 74,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 1.875,
+                ultimate: 3.24,
+            },
+        },
+        Seele: {
+            stats: {
+                Attack: 640.33,
+                HP: 931.39,
+                Defense: 363.83,
+                Speed: 115,
+                CritRate: 5,
+                CritDMG: 74,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 2.75,
+                ultimate: 5.1,
+            },
+        },
+        Sushang: {
+            stats: {
+                Attack: 564.48,
+                HP: 917.28,
+                Defense: 418.95,
+                Speed: 107,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 3.875,
+                ultimate: 4.34,
+            },
+        },
+        Topaz: {
+            stats: {
+                Attack: 620.93,
+                HP: 931.39,
+                Defense: 412.34,
+                Speed: 110,
+                CritRate: 17,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 4.375,
+                ultimate: 0,
+            },
+        },
+        Yanqing: {
+            stats: {
+                Attack: 679.14,
+                HP: 892.58,
+                Defense: 412.34,
+                Speed: 109,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 2.75,
+                ultimate: 4.2,
+            },
+        },
+        Acheron: {
+            stats: {
+                Attack: 698.54,
+                HP: 1125,
+                Defense: 436.59,
+                Speed: 101,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 2,
+                ultimate: 676.8,
+            },
+        },
+        'Black Swan': {
+            stats: {
+                Attack: 659.74,
+                HP: 1086.62,
+                Defense: 485.1,
+                Speed: 102,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 0.78,
+                skill: 1.125,
+                ultimate: 1.44,
+            },
+        },
+        Guinaifen: {
+            stats: {
+                Attack: 582.12,
+                HP: 882,
+                Defense: 441,
+                Speed: 106,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 24,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 1.5,
+                ultimate: 2.46,
+            },
+        },
+        Jiaoqiu: {
+            stats: {
+                Attack: 601.52,
+                HP: 1358.28,
+                Defense: 509.36,
+                Speed: 103,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 1.875,
+                ultimate: 1.2,
+            },
+        },
+        Kafka: {
+            stats: {
+                Attack: 679.14,
+                HP: 1086.62,
+                Defense: 485.1,
+                Speed: 100,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 2.825,
+                ultimate: 566.69,
+            },
+        },
+        Luka: {
+            stats: {
+                Attack: 582.12,
+                HP: 917.28,
+                Defense: 485.1,
+                Speed: 103,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 2.08,
+                skill: 1.5,
+                ultimate: 3.96,
+            },
+        },
+        Pela: {
+            stats: {
+                Attack: 546.84,
+                HP: 987.84,
+                Defense: 463.05,
+                Speed: 105,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 2.625,
+                ultimate: 1.2,
+            },
+        },
+        Sampo: {
+            stats: {
+                Attack: 617.4,
+                HP: 1023.12,
+                Defense: 396.9,
+                Speed: 102,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 2.8,
+                ultimate: 1.92,
+            },
+        },
+        'Silver Wolf': {
+            stats: {
+                Attack: 640.33,
+                HP: 1047.82,
+                Defense: 460.85,
+                Speed: 107,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 2.45,
+                ultimate: 4.56,
+            },
+        },
+        Fugue: {
+            stats: {
+                Attack: 0,
+                HP: 0,
+                Defense: 0,
+                Speed: 0,
+                CritRate: 0,
+                CritDMG: 0,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 0,
+                skill: 0,
+                ultimate: 0,
+            },
+        },
+        Welt: {
+            stats: {
+                Attack: 620.93,
+                HP: 1125.43,
+                Defense: 509.36,
+                Speed: 102,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 10,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 1.8,
+                ultimate: 1.8,
+            },
+        },
+        Aventurine: {
+            stats: {
+                Attack: 120,
+                HP: 1000,
+                Defense: 50,
+                Speed: 106,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 10,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 0,
+                ultimate: 3.24,
+            },
+        },
+        'Fu Xuan': {
+            stats: {
+                Attack: 465.7,
+                HP: 1474.7,
+                Defense: 606.38,
+                Speed: 100,
+                CritRate: 17,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 10,
+            },
+            multipliers: {
+                basic: 0.65,
+                skill: 0,
+                ultimate: 1.2,
+            },
+        },
+        Gepard: {
+            stats: {
+                Attack: 543.31,
+                HP: 1397.09,
+                Defense: 654.88,
+                Speed: 92,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 10,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 2.3,
+                ultimate: 0,
+            },
+        },
+        'March 7th': {
+            stats: {
+                Attack: 511.56,
+                HP: 1058.4,
+                Defense: 573.3,
+                Speed: 101,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 17,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 1.25,
+                ultimate: 1.8,
+            },
+        },
+        'Trailblazer - Preservation': {
+            stats: {
+                Attack: 601.52,
+                HP: 1241.86,
+                Defense: 606.38,
+                Speed: 95,
+                CritRate: 5,
+                CritDMG: 50,
+                BreakEffect: 0,
+                EffectRes: 0,
+            },
+            multipliers: {
+                basic: 1.3,
+                skill: 0,
+                ultimate: 1.25,
+            },
+        },
+
     };
 
     // Function to update the character stats display dynamically
