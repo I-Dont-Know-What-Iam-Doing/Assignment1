@@ -395,3 +395,28 @@
 
 
 
+/* damage value css */
+/* Hide the calculation result container initially */
+.hidden {
+  display: none;
+  margin-top: 20px;
+}
+
+/* Center text in the damage output container */
+#damage-output {
+  text-align: center;
+}
+
+/* Flex container for damage boxes */
+.damage-flex-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Style for each damage box */
+.damage-box {
+  border: 1px solid black;
+  padding: 20px;
+  width: 200px;
+}

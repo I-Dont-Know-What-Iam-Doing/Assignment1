@@ -295,6 +295,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
+    const relicContainer = document.getElementById("stats-relic-container");
+    const selectedCharacterDisplay = document.getElementById("selected-character");
+    const calculationResultContainer = document.getElementById("calculation-result-container");
+    const basicDamageDisplay = document.getElementById("basic-damage");
+    const skillDamageDisplay = document.getElementById("skill-damage");
+    const ultimateDamageDisplay = document.getElementById("ultimate-damage");
+
+    // Character information
     const characterInfo = {
         Huohuo: {
             stats: {
@@ -323,56 +331,89 @@ document.addEventListener("DOMContentLoaded", () => {
             multipliers: {
                 basic: 1.2,
                 skill: 1.8,
-                ultimate: 3.0,
+                ultimate: 2.8,
             },
         },
-        // Add more characters as needed
+        // Add more characters here if needed
     };
 
-    function updateCharacterStats(characterName) {
-        const statsContainer = document.getElementById("character-stats");
-        const character = characterInfo[characterName];
-
-        if (character) {
-            let statsTable = `
-                <h3>${characterName}'s Stats</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Stat</th>
-                            <th>Value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            `;
-
-            for (const [stat, value] of Object.entries(character.stats)) {
-                statsTable += `
-                    <tr>
-                        <td>${stat}</td>
-                        <td id="stat-${stat}">${value}</td>
-                    </tr>
-                `;
-            }
-
-            statsTable += `
-                    </tbody>
-                </table>
-                <button id="calculateBtn">Calculate</button>
-            `;
-
-            statsContainer.innerHTML = statsTable;
-
-            // Attach event listener to Calculate button
-            document.getElementById("calculateBtn").addEventListener("click", () => {
-                calculateDamage(characterName);
-            });
-        } else {
-            statsContainer.innerHTML = `<p>No character stats available.</p>`;
+    // Function to update the character stats display dynamically
+    function updateCharacterStatsDisplay() {
+        const selectedCharacter = selectedCharacterDisplay.textContent.split(": ")[1];
+        if (!selectedCharacter || !characterInfo[selectedCharacter]) {
+            console.error("No character selected or invalid character name.");
+            return;
         }
+
+        const baseStats = characterInfo[selectedCharacter].stats;
+        const relicStats = getRelicStats();
+
+        // Calculate updated stats
+        const updatedStats = {
+            Attack: baseStats.Attack + (baseStats.Attack * relicStats.Attack / 100),
+            HP: baseStats.HP + (baseStats.HP * relicStats.HP / 100),
+            Defense: baseStats.Defense + (baseStats.Defense * relicStats.Defense / 100),
+            Speed: baseStats.Speed + relicStats.Speed, // Speed is additive
+            CritRate: baseStats.CritRate + relicStats.CritRate,
+            CritDMG: baseStats.CritDMG + relicStats.CritDMG,
+        };
+
+        // Update the stats table
+        const statsContainer = document.getElementById("character-stats");
+        let statsTable = `
+            <h3>${selectedCharacter}'s Stats</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stat</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+
+        for (const [stat, value] of Object.entries(updatedStats)) {
+            statsTable += `
+                <tr>
+                    <td>${stat}</td>
+                    <td>${value.toFixed(2)}</td>
+                </tr>
+            `;
+        }
+
+        statsTable += `
+                </tbody>
+            </table>
+            <button id="calculateBtn" style="margin-top: 20px;">Calculate</button>
+        `;
+        statsContainer.innerHTML = statsTable;
+
+        // Attach event listener to the Calculate button
+        document.getElementById("calculateBtn").addEventListener("click", () => {
+            calculateDamage(selectedCharacter, updatedStats);
+        });
     }
 
-    function calculateSelectedRelicStats() {
+    // Function to calculate damage
+    function calculateDamage(characterName, stats) {
+        const characterMultipliers = characterInfo[characterName].multipliers;
+
+        const attackWithCrit = stats.Attack * (1 + stats.CritDMG / 100); // Attack considering CritDMG
+        const basicDamage = attackWithCrit * characterMultipliers.basic;
+        const skillDamage = attackWithCrit * characterMultipliers.skill;
+        const ultimateDamage = attackWithCrit * characterMultipliers.ultimate;
+
+        // Update the damage display
+        basicDamageDisplay.textContent = `Damage: ${basicDamage.toFixed(2)}`;
+        skillDamageDisplay.textContent = `Damage: ${skillDamage.toFixed(2)}`;
+        ultimateDamageDisplay.textContent = `Damage: ${ultimateDamage.toFixed(2)}`;
+
+        // Show the calculation result container
+        calculationResultContainer.style.display = "block";
+    }
+
+    // Function to calculate relic stats dynamically
+    function getRelicStats() {
         const relicBoxes = document.querySelectorAll(".stats-relic-box");
         const stats = {
             Attack: 0,
@@ -381,7 +422,6 @@ document.addEventListener("DOMContentLoaded", () => {
             Defense: 0,
             CritRate: 0,
             CritDMG: 0,
-            BreakEffect: 0,
         };
 
         relicBoxes.forEach((box) => {
@@ -389,69 +429,41 @@ document.addEventListener("DOMContentLoaded", () => {
             const mainStatSelect = box.querySelector(".relic-main-stat");
             const mainStatValue = parseFloat(mainStatSelect.selectedOptions[0].dataset.value);
             const mainStatType = mainStatSelect.value;
-            stats[mainStatType] += mainStatValue;
+            if (mainStatType in stats) {
+                stats[mainStatType] += mainStatValue;
+            }
 
             // Sub stats
             const subStatSelects = box.querySelectorAll(".relic-sub-stat");
             subStatSelects.forEach((subStatSelect) => {
                 const subStatValue = parseFloat(subStatSelect.selectedOptions[0].dataset.value);
                 const subStatType = subStatSelect.value;
-                stats[subStatType] += subStatValue;
+                if (subStatType in stats) {
+                    stats[subStatType] += subStatValue;
+                }
             });
         });
 
         return stats;
     }
 
-    function calculateDamage(characterName) {
-        const character = characterInfo[characterName];
-        if (!character) return;
-
-        const baseStats = { ...character.stats };
-        const relicStats = calculateSelectedRelicStats();
-
-        // Aggregate stats
-        const totalStats = { ...baseStats };
-        for (const [key, value] of Object.entries(relicStats)) {
-            if (totalStats[key] !== undefined) {
-                totalStats[key] += value;
-            }
+    // Attach event listeners to all relic stat selectors for real-time updates
+    relicContainer.addEventListener("change", (event) => {
+        if (event.target.matches(".relic-main-stat, .relic-sub-stat")) {
+            updateCharacterStatsDisplay();
         }
-
-        // Calculate total attack with Crit DMG multiplier applied
-        const totalAttack = totalStats.Attack * (1 + totalStats.CritDMG / 100);
-
-        // Calculate damage for each move
-        const basicDamage = totalAttack * character.multipliers.basic;
-        const skillDamage = totalAttack * character.multipliers.skill;
-        const ultimateDamage = totalAttack * character.multipliers.ultimate;
-
-        // Update damage display
-        document.getElementById("basic-damage").textContent = `Damage: ${basicDamage.toFixed(2)}`;
-        document.getElementById("skill-damage").textContent = `Damage: ${skillDamage.toFixed(2)}`;
-        document.getElementById("ultimate-damage").textContent = `Damage: ${ultimateDamage.toFixed(2)}`;
-
-        // Show the results container
-        const resultContainer = document.getElementById("calculation-result-container");
-        resultContainer.style.display = "block";
-
-        // Update the displayed stats in real-time
-        for (const [key, value] of Object.entries(totalStats)) {
-            const statElement = document.getElementById(`stat-${key}`);
-            if (statElement) statElement.textContent = value.toFixed(2);
-        }
-    }
+    });
 
     // Attach event listeners to character selection buttons
     const characterButtons = document.querySelectorAll(".filterDiv");
     characterButtons.forEach((button) => {
         button.addEventListener("click", () => {
             const selectedCharacter = button.value;
-            const displayElement = document.getElementById("selected-character");
-            displayElement.textContent = `You selected: ${selectedCharacter}`;
-
-            // Update stats for the selected character
-            updateCharacterStats(selectedCharacter);
+            selectedCharacterDisplay.textContent = `You selected: ${selectedCharacter}`;
+            updateCharacterStatsDisplay(); // Update stats when character changes
         });
     });
+
+    // Initial update for stats table
+    updateCharacterStatsDisplay();
 });
