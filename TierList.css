@@ -68,11 +68,13 @@
   padding: 10px;
   text-align: center;
   border: 1px solid #ddd;
+  vertical-align: top;
 }
 
 #tierListTable th {
   background-color: #f4f4f4;
 }
+
 
 #tierListTable td {
   vertical-align: top;
@@ -237,4 +239,91 @@
 
 
 
+/* General Styles for the Character List */
+#character-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+  gap: 20px; /* Space between items */
+  margin-top: 20px;
+}
 
+#character-list img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover; /* Ensure images cover the box size proportionally */
+}
+
+.character-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Makes the box flexible */
+  padding: 10px; /* Reduced padding to make the boxes smaller */
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+
+.character-box:hover {
+  transform: scale(1.05);
+}
+
+.character-box.selected {
+  border: 2px solid #000; /* Border for selected character */
+}
+
+.character-description {
+  display: none;
+  padding: 15px;
+  border-top: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.character-description.selected {
+  display: block;
+}
+
+
+
+
+
+
+
+/* Adjusting layout for mobile devices */
+@media screen and (max-width: 768px) {
+  #character-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row on smaller screens */
+    gap: 15px; /* Adjusted gap for smaller screens */
+}
+
+#character-list img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover; /* Ensure images cover the box size proportionally */
+}
+
+.character-box {
+  padding: 8px; /* Reduced padding for smaller screens */
+}
+}
+
+
+.character-box:hover {
+    transform: scale(1.05);
+}
+
+.character-box.selected {
+    border: 2px solid #000; /* Border for selected character */
+}
+
+.character-description {
+    display: none;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.character-description.selected {
+    display: block;
+}

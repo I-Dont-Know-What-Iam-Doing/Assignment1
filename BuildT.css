@@ -46,6 +46,92 @@
 
 
 
+/* Mobile */
+/* For mobile devices */
+@media (max-width: 600px) {
+  /* Relic container: flex-wrap, center-align, and gap adjustment */
+  .relic-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+  }
+
+  /* RelicDiv adjustments for mobile: reduce size and padding */
+  .relicDiv {
+      width: 48%;  /* Two relics per row */
+      height: 60px;  /* Smaller height for mobile */
+      font-size: 12px;  /* Reduced font size */
+      padding: 5px;
+      box-sizing: border-box;
+  }
+
+  /* Text inside relicDiv */
+  .relicDiv span {
+      font-size: 10px;  /* Smaller text */
+  }
+
+  /* Button text and size adjustment */
+  .relicDiv button {
+      font-size: 12px;  /* Smaller button text */
+  }
+
+  /* Adjust the dropdown select box */
+  select {
+      font-size: 12px;
+      padding: 6px;
+      width: 100%;  /* Make dropdown full-width */
+  }
+
+  /* Adjust the selected relic text */
+  #selected-relic {
+      font-size: 14px;  /* Smaller font for selected relic */
+  }
+
+  /* Make the entire button set more responsive */
+  .btn {
+      font-size: 14px;
+      padding: 6px 12px;  /* Adjust padding for mobile */
+  }
+}
+
+/* For larger screens (desktop and tablets) */
+@media (min-width: 601px) {
+  .relicDiv {
+      width: 45%; /* Four relics per row */
+      font-size: 14px;
+  }
+
+  select {
+      font-size: 14px;
+      padding: 8px;
+      width: auto; /* Return to normal width for larger screens */
+  }
+
+  #selected-relic {
+      font-size: 16px;
+  }
+}
+
+/* Ensure full-width layout for mobile */
+@media (max-width: 768px) {
+  .relicDiv {
+      width: 48%;
+  }
+
+  .relic-container {
+      justify-content: center;
+  }
+}
+
+
+
+
+
+
+
+
+
 
 
 
